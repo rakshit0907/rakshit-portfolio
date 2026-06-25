@@ -2,22 +2,10 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const links = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "About",
-    path: "/about",
-  },
-  {
-    name: "Projects",
-    path: "/projects",
-  },
-  {
-    name: "Contact",
-    path: "/contact",
-  },
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Projects", path: "/projects" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export default function Navbar() {
@@ -29,18 +17,13 @@ export default function Navbar() {
       left-1/2
       -translate-x-1/2
       z-50
-      w-[90%]
-      max-w-5xl
-    "
+      "
     >
       <nav
         className="
         flex
         items-center
-        justify-between
-
-        px-6
-        py-4
+        gap-2
 
         rounded-full
 
@@ -50,62 +33,59 @@ export default function Navbar() {
         bg-white/5
         backdrop-blur-xl
 
-        shadow-[0_0_30px_rgba(255,255,255,0.05)]
+        px-3
+        py-3
+
+        shadow-[0_8px_40px_rgba(0,0,0,0.4)]
       "
       >
-        <div
-          className="
-          text-lg
-          font-bold
-          tracking-wide
-        "
-        >
-          RP
-        </div>
+        {links.map((link) => (
+          <NavLink
+            key={link.path}
+            to={link.path}
+            className="relative"
+          >
+            {({ isActive }) => (
+              <div className="relative px-5 py-2">
+                {isActive && (
+                  <motion.div
+                    layoutId="navbar-pill"
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 30,
+                    }}
+                    className="
+                    absolute
+                    inset-0
 
-        <div className="flex gap-8">
-          {links.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className="relative"
-            >
-              {({ isActive }) => (
-                <div className="relative">
-                  <span
-                    className={`
-                    transition-colors
-                    duration-300
+                    rounded-full
 
-                    ${
-                      isActive
-                        ? "text-white"
-                        : "text-zinc-400"
-                    }
-                  `}
-                  >
-                    {link.name}
-                  </span>
-
-                  {isActive && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className="
-                      absolute
-                      -bottom-2
-                      left-0
-                      right-0
-                      h-[2px]
-                      bg-white
-                      rounded-full
+                    bg-white
                     "
-                    />
-                  )}
-                </div>
-              )}
-            </NavLink>
-          ))}
-        </div>
+                  />
+                )}
+
+                <span
+                  className={`
+                  relative
+                  z-10
+
+                  transition-colors
+
+                  ${
+                    isActive
+                      ? "text-black"
+                      : "text-zinc-300"
+                  }
+                `}
+                >
+                  {link.name}
+                </span>
+              </div>
+            )}
+          </NavLink>
+        ))}
       </nav>
     </header>
   );
