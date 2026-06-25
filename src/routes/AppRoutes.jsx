@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 
 import MainLayout from "../layouts/MainLayout";
-
+import ScrollToTop from "../components/ScrollToTop";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Projects from "../pages/Projects";
@@ -34,6 +34,14 @@ export default function AppRoutes() {
             path="/about"
             element={<About />}
           />
+          
+              <>
+      <ScrollToTop />
+
+      <AnimatePresence mode="wait">
+        ...
+      </AnimatePresence>
+    </>
 
           <Route
             path="/projects"
