@@ -1,7 +1,7 @@
 import Hero from "../sections/Hero";
 import FeaturedWork from "../sections/FeaturedWork";
 import AboutPreview from "../sections/AboutPreview";
-
+import SkillsPreview from "../sections/SkillsPreview";
 import PageTransition from "../components/PageTransition";
 
 export default function Home() {
@@ -10,6 +10,8 @@ export default function Home() {
       <Hero />
       <FeaturedWork />
       <AboutPreview />
+      <SkillsPreview />
     </PageTransition>
+    
   );
 }

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import * as THREE from "three";
 import useMousePosition from "../hooks/useMousePosition";
 import useScrollProgress from "../hooks/useScrollProgress";
+import Particles from "./Particles";
 function Blob() {
   
   const meshRef = useRef();
@@ -85,6 +86,7 @@ function Blob() {
 export default function HeroScene() {
   return (
     <Canvas
+    
       camera={{
         position: [0, 0, 8],
         fov: 50,
@@ -102,7 +104,7 @@ export default function HeroScene() {
         position={[-5, -5, 5]}
         intensity={2}
       />
-
+      <Particles />
       <Blob />
     </Canvas>
   );
