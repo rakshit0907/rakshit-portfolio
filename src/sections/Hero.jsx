@@ -1,4 +1,4 @@
-import HeroScene from "../components/HeroScene";
+import HeroScene from "../experience/scene/HeroScene";
 import HeroOverlay from "../components/HeroOverlay";
 import HeroScrollIndicator from "../components/HeroScrollIndicator";
 import useHeroPin from "../hooks/useHeroPin";

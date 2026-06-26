@@ -2,9 +2,10 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { MeshDistortMaterial } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
-import useMousePosition from "../hooks/useMousePosition";
-import useScrollProgress from "../hooks/useScrollProgress";
-import Particles from "./Particles";
+import useMousePosition from "../../hooks/useMousePosition";
+import useScrollProgress from "../../hooks/useScrollProgress";
+import Particles from "../../components/Particles";
+import EnergyCore from "../core/EnergyCore";
 function Blob() {
   
   const meshRef = useRef();
@@ -105,7 +106,7 @@ export default function HeroScene() {
         intensity={2}
       />
       <Particles />
-      <Blob />
+      <EnergyCore />
     </Canvas>
   );
 }
