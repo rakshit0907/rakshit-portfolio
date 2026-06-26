@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-
+import Satellites from "./Satellites";
 export default function EnergyCore() {
   const group = useRef();
 
@@ -63,6 +63,7 @@ export default function EnergyCore() {
           roughness={0.15}
         />
       </mesh>
+      <Satellites />
     </group>
   );
 }
