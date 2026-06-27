@@ -1,11 +1,11 @@
 import { Canvas } from "@react-three/fiber";
-
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import CameraRig from "./CameraRig";
 import Lights from "./Lights";
 import Environment from "./Environment";
 
 import Particles from "../particles/Particles";
-import EnergyCore from "../core/EnergyCore";
+import { Reactor } from "../reactor";
 
 export default function HeroScene() {
   return (
@@ -32,7 +32,14 @@ export default function HeroScene() {
       <Particles />
 
       {/* Main Hero Object */}
-      <EnergyCore />
+      <Reactor />
+      <EffectComposer>
+        <Bloom
+        intensity={1.6}
+        luminanceThreshold={0}
+        luminanceSmoothing={0.9}
+        />
+      </EffectComposer>
     </Canvas>
   );
 }
