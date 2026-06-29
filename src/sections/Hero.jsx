@@ -1,6 +1,6 @@
 import HeroScene from "../experience/scene/HeroScene";
-import HeroContent from "../components/HeroContent";
-import HeroScrollIndicator from "../components/HeroScrollIndicator";
+import HeroContent from "../components/hero/HeroContent";
+import HeroScrollIndicator from "../components/hero/HeroScrollIndicator";
 import useHeroPin from "../hooks/useHeroPin";
 
 export default function Hero() {

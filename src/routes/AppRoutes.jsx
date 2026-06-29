@@ -15,7 +15,7 @@ import About from "../pages/About";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 
-import ScrollToTop from "../components/ScrollToTop";
+import ScrollToTop from "../components/common/ScrollToTop";
 
 export default function AppRoutes() {
   const location = useLocation();

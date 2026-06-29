@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { projects } from "../data/projects";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../components/ui/ProjectCard";
 
 export default function Projects() {
   const [selected, setSelected] = useState(null);

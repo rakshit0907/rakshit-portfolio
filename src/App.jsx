@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Loader from "./components/Loader";
+import Loader from "./components/common/Loader";
 import AppRoutes from "./routes/AppRoutes";
 
 import useLenis from "./hooks/useLenis";
