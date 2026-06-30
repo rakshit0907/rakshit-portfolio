@@ -3,11 +3,12 @@ import Reveal from "../ui/Reveal";
 
 export default function AboutCTA() {
   return (
-    <section className="relative py-56 bg-black overflow-hidden">
+    <section className="about-cta relative py-56 bg-black overflow-hidden">
 
       {/* Background Word */}
       <h1
         className="
+          create-bg-title
           absolute
           inset-0
           flex

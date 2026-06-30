@@ -5,7 +5,7 @@ export default function AboutHero() {
   useAboutHeroAnimation();
 
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex items-center">
+    <section className="about-hero relative min-h-screen bg-black overflow-hidden flex items-center">
 
       {/* Background Title */}
       <h1

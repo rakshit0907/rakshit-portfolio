@@ -3,7 +3,7 @@ import Reveal from "../ui/Reveal";
 
 export default function AboutStory() {
   return (
-    <section className="relative py-40 bg-black">
+    <section className="relative py-36 bg-black">
 
       <div className="max-w-7xl mx-auto px-10">
 

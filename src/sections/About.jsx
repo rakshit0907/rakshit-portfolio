@@ -6,7 +6,9 @@ import AboutPhilosophy from "../components/about/AboutPhilosophy";
 import AboutTech from "../components/about/AboutTech";
 import AboutCurrent from "../components/about/AboutCurrent";
 import AboutCTA from "../components/about/AboutCTA";
+import useAboutParallax from "../hooks/useAboutParallax";
 export default function About() {
+  useAboutParallax();
   return (
     <section className="relative bg-black text-white">
       <AboutBackground />
@@ -16,13 +18,7 @@ export default function About() {
       <AboutPhilosophy />
       <AboutTech />
       <AboutCurrent />
-      <AboutCTA />
-
-      <div className="h-screen flex items-center justify-center">
-        <h1 className="text-7xl font-black text-white">
-          NEXT SECTION
-        </h1>
-      </div>
+      <AboutCTA /> 
 
     </section>
   );

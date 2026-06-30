@@ -26,7 +26,7 @@ const journey = [
 
 export default function AboutJourney() {
   return (
-    <section className="py-40 bg-black">
+    <section className="py-44 bg-black">
       <div className="max-w-7xl mx-auto px-10">
 
         <Reveal y={40}>
