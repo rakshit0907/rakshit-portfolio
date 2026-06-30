@@ -3,9 +3,9 @@ import Reveal from "../ui/Reveal";
 
 export default function AboutStory() {
   return (
-    <section className="relative py-36 bg-black">
+    <section className="relative pt-52 pb-40 bg-gradient-to-b from-transparent via-black-to-black">
 
-      <div className="max-w-7xl mx-auto px-10">
+      <div className="max-w-7xl mx-auto px-10 relative">
 
         <div className="grid lg:grid-cols-12 gap-20">
 
@@ -13,15 +13,15 @@ export default function AboutStory() {
 
           <div className="lg:col-span-4">
 
-            <Reveal y={40}>
-              <p className="uppercase tracking-[0.35em] text-violet-400 text-xs mb-6">
+            <Reveal y={20}>
+              <p className="uppercase tracking-[0.45em] text-violet-400 text-xs mb-8">
                 My Story
               </p>
             </Reveal>
 
-            <Reveal delay={0.1}>
+            <Reveal>
               <h2
-                className="font-black leading-[0.9] tracking-[-0.05em]"
+                className="font-black leading-[0.88] tracking-[-0.06em]"
                 style={{
                   fontSize: headingLG,
                 }}

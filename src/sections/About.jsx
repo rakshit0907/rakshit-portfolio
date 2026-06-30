@@ -6,19 +6,30 @@ import AboutPhilosophy from "../components/about/AboutPhilosophy";
 import AboutTech from "../components/about/AboutTech";
 import AboutCurrent from "../components/about/AboutCurrent";
 import AboutCTA from "../components/about/AboutCTA";
+
 import useAboutParallax from "../hooks/useAboutParallax";
+
 export default function About() {
   useAboutParallax();
+
   return (
     <section className="relative bg-black text-white">
+
       <AboutBackground />
+
+      {/* Chapter 01 */}
       <AboutHero />
-      <AboutStory />
+
+      {/* Story starts before Hero completely ends */}
+      <div className="-mt-[18vh] relative z-20">
+        <AboutStory />
+      </div>
+
       <AboutJourney />
       <AboutPhilosophy />
       <AboutTech />
       <AboutCurrent />
-      <AboutCTA /> 
+      <AboutCTA />
 
     </section>
   );
