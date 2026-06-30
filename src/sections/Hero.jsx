@@ -14,7 +14,7 @@ export default function Hero() {
       h-screen
       "
     >
-      <div className="absolute inset-0">
+      <div className="hero-scene absolute inset-0">
         <HeroScene />
       </div>
 

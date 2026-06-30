@@ -10,7 +10,7 @@ export default function HeroContent() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 0.7, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="uppercase tracking-[0.5em] text-cyan-300 text-sm mb-4"
+          className="hero-tagline uppercase tracking-[0.5em] text-cyan-300 text-sm mb-4"
         >
           Creative Full Stack Developer
         </motion.p>
@@ -19,7 +19,7 @@ export default function HeroContent() {
           initial={{ opacity: 0, y: 70 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 1 }}
-          className="text-white font-black leading-none"
+          className="hero-title text-white font-black leading-none"
           style={{
             fontSize: "clamp(4rem,10vw,9rem)"
           }}
@@ -31,7 +31,7 @@ export default function HeroContent() {
           initial={{ opacity: 0, y: 90 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 1 }}
-          className="font-black leading-none bg-gradient-to-r from-violet-400 via-cyan-300 to-white bg-clip-text text-transparent"
+          className="hero-title-gradient font-black leading-none bg-gradient-to-r from-violet-400 via-cyan-300 to-white bg-clip-text text-transparent"
           style={{
             fontSize: "clamp(4rem,10vw,9rem)"
           }}
@@ -43,7 +43,7 @@ export default function HeroContent() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.75 }}
           transition={{ delay: 1.7 }}
-          className="max-w-xl mt-8 text-zinc-300 leading-8 text-lg"
+          className="hero-description max-w-xl mt-8 text-zinc-300 leading-8 text-lg"
         >
           Building immersive digital experiences with React,
           Three.js, Node.js and AI —

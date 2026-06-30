@@ -2,51 +2,71 @@ export const techStack = [
   {
     name: "React",
     color: "#61DAFB",
-    icon: "⚛"
+    icon: "⚛",
+    description:
+      "Building modern, responsive and component-driven user interfaces.",
   },
   {
     name: "Three.js",
     color: "#ffffff",
-    icon: "◉"
+    icon: "◉",
+    description:
+      "Creating immersive 3D experiences that blend storytelling and interaction.",
   },
   {
     name: "GSAP",
     color: "#88CE02",
-    icon: "▲"
+    icon: "▲",
+    description:
+      "Crafting smooth, cinematic animations with high-performance motion.",
   },
   {
     name: "Node.js",
     color: "#6CC24A",
-    icon: "⬢"
+    icon: "⬢",
+    description:
+      "Developing scalable backend services, APIs and business logic.",
   },
   {
     name: "MongoDB",
     color: "#47A248",
-    icon: "⬣"
+    icon: "⬣",
+    description:
+      "Designing flexible NoSQL databases for modern web applications.",
   },
   {
     name: "Express",
     color: "#ffffff",
-    icon: "◈"
+    icon: "◈",
+    description:
+      "Building secure and efficient REST APIs with clean architecture.",
   },
   {
     name: "JavaScript",
     color: "#F7DF1E",
-    icon: "JS"
+    icon: "JS",
+    description:
+      "The language behind interactive, dynamic and modern web experiences.",
   },
   {
     name: "Git",
     color: "#F05032",
-    icon: "⌘"
+    icon: "⌘",
+    description:
+      "Managing projects, collaboration and version control with confidence.",
   },
   {
     name: "Docker",
     color: "#2496ED",
-    icon: "⬡"
+    icon: "⬡",
+    description:
+      "Containerizing applications for consistent development and deployment.",
   },
   {
     name: "AI",
     color: "#A855F7",
-    icon: "✦"
-  }
+    icon: "✦",
+    description:
+      "Exploring intelligent systems, automation and AI-powered applications.",
+  },
 ];
