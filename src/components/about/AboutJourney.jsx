@@ -1,6 +1,6 @@
 import { headingLG } from "../../utils/typography";
 import Reveal from "../ui/Reveal";
-
+import useJourneyAnimation from "../../hooks/useJourneyAnimation";
 const journey = [
   {
     stage: "01",
@@ -25,8 +25,9 @@ const journey = [
 ];
 
 export default function AboutJourney() {
+    useJourneyAnimation();
   return (
-    <section className="py-44 bg-black">
+    <section className="journey-section py-44 bg-black">
       <div className="max-w-7xl mx-auto px-10">
 
         <Reveal y={40}>
@@ -46,7 +47,30 @@ export default function AboutJourney() {
           </h2>
         </Reveal>
 
-        <div className="space-y-14">
+        <div className="relative ml-6">
+            <div
+              className="
+              absolute
+              left-[11px]
+              top-0
+              bottom-0
+              w-px
+              bg-zinc-800
+              "
+            >
+             <div
+             className="
+             journey-line
+             absolute
+             top-0
+             left-0
+             w-full
+             h-0
+             bg-violet-500
+             origin-top
+             "  
+             />
+            </div>  
           {journey.map((item, index) => (
             <Reveal
               key={item.stage}
@@ -62,7 +86,19 @@ export default function AboutJourney() {
                   pb-12
                 "
               >
-                <div className="lg:col-span-2">
+                <div className="lg:col-span-2 relative">
+                    <div
+                      className="
+                      absolute-left-8
+                      top-3
+                      w-6
+                      h-6
+                      rounded-full
+                      border-violet-500
+                      bg-black
+                      shadow-[0_0_20px_rgba(139,92,246,0.4)]
+                      "
+                     /> 
 
                   <span
                     className="
