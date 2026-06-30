@@ -1,6 +1,6 @@
 import useAboutHeroAnimation from "../../hooks/useAboutHeroAnimation";
 import { headingXL } from "../../utils/typography";
-
+import Reveal from "../ui/Reveal";
 export default function AboutHero() {
   useAboutHeroAnimation();
 
@@ -29,7 +29,7 @@ export default function AboutHero() {
       </h1>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full px-10">
-
+       <Reveal y={40}>
         <p
           className="
             about-kicker
@@ -42,9 +42,9 @@ export default function AboutHero() {
         >
           WHO I AM
         </p>
-
+       </Reveal>
         <div className="max-w-6xl">
-
+        <Reveal>  
           <h1
             className="
               about-title
@@ -60,7 +60,9 @@ export default function AboutHero() {
             <br />
             A DEVELOPER
           </h1>
+        </Reveal>
 
+        <Reveal delay={0.2}>
           <h1
             className="
               about-subtitle
@@ -84,7 +86,7 @@ export default function AboutHero() {
             <br />
             DIGITAL EXPERIENCES
           </h1>
-
+        </Reveal>
         </div>
 
       </div>
@@ -99,10 +101,12 @@ export default function AboutHero() {
           text-right
         "
       >
+       <Reveal> 
         <p className="text-zinc-500 leading-8 text-lg">
           Full Stack Developer focused on building immersive,
           performant and thoughtfully crafted digital products.
         </p>
+       </Reveal> 
       </div>
 
     </section>

@@ -1,4 +1,5 @@
 import { headingXL } from "../../utils/typography";
+import Reveal from "../ui/Reveal";
 
 export default function AboutCTA() {
   return (
@@ -26,34 +27,40 @@ export default function AboutCTA() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-10">
 
-        <p className="uppercase tracking-[0.35em] text-violet-400 text-xs mb-8">
-          Let's Build Together
-        </p>
+        <Reveal y={40}>
+          <p className="uppercase tracking-[0.35em] text-violet-400 text-xs mb-8">
+            Let's Build Together
+          </p>
+        </Reveal>
 
-        <h2
-          className="font-black leading-[0.88] tracking-[-0.05em]"
-          style={{
-            fontSize: headingXL,
-          }}
-        >
-          LET'S CREATE
-          <br />
-          SOMETHING
-          <br />
-          THAT PEOPLE
-          <br />
-          REMEMBER.
-        </h2>
+        <Reveal delay={0.1}>
+          <h2
+            className="font-black leading-[0.88] tracking-[-0.05em]"
+            style={{
+              fontSize: headingXL,
+            }}
+          >
+            LET'S CREATE
+            <br />
+            SOMETHING
+            <br />
+            THAT PEOPLE
+            <br />
+            REMEMBER.
+          </h2>
+        </Reveal>
 
         <div className="grid lg:grid-cols-12 gap-16 mt-24">
 
           <div className="lg:col-span-7">
 
-            <p className="text-3xl leading-[1.8] text-zinc-100 font-light max-w-3xl">
-              Whether it's a product, a startup, or an ambitious idea,
-              I'm always excited to collaborate with people who want to
-              build meaningful digital experiences.
-            </p>
+            <Reveal delay={0.25}>
+              <p className="text-3xl leading-[1.8] text-zinc-100 font-light max-w-3xl">
+                Whether it's a product, a startup, or an ambitious idea,
+                I'm always excited to collaborate with people who want to
+                build meaningful digital experiences.
+              </p>
+            </Reveal>
 
           </div>
 
@@ -61,26 +68,37 @@ export default function AboutCTA() {
 
             <div>
 
-              <p className="text-zinc-500 leading-8 mb-8">
-                Ready to start a conversation?
-              </p>
+              <Reveal delay={0.4}>
+                <p className="text-zinc-500 leading-8 mb-8">
+                  Ready to start a conversation?
+                </p>
+              </Reveal>
 
-              <button
-                className="
-                  px-10
-                  py-5
-                  rounded-full
-                  bg-white
-                  text-black
-                  font-semibold
-                  transition-all
-                  duration-300
-                  hover:scale-105
-                  hover:bg-violet-400
-                "
-              >
-                Get In Touch →
-              </button>
+              <Reveal delay={0.55}>
+                <button
+                  className="
+                    group
+                    px-10
+                    py-5
+                    rounded-full
+                    bg-white
+                    text-black
+                    font-semibold
+                    transition-all
+                    duration-300
+                    hover:bg-violet-400
+                    hover:scale-105
+                    hover:shadow-[0_0_35px_rgba(168,85,247,0.35)]
+                  "
+                >
+                  <span className="inline-flex items-center gap-3">
+                    Get In Touch
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </span>
+                </button>
+              </Reveal>
 
             </div>
 

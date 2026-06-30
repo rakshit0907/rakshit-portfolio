@@ -1,4 +1,5 @@
 import { headingLG } from "../../utils/typography";
+import Reveal from "../ui/Reveal";
 
 const journey = [
   {
@@ -27,50 +28,72 @@ export default function AboutJourney() {
   return (
     <section className="py-40 bg-black">
       <div className="max-w-7xl mx-auto px-10">
-        <p className="uppercase tracking-[0.35em] text-violet-400 text-xs mb-6">
-          Journey
-        </p>
 
-        <h2
-          className="font-black leading-[0.9] tracking-[-0.05em] mb-24"
-          style={{ fontSize: headingLG }}
-        >
-          MY
-          <br />
-          JOURNEY.
-        </h2>
+        <Reveal y={40}>
+          <p className="uppercase tracking-[0.35em] text-violet-400 text-xs mb-6">
+            Journey
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <h2
+            className="font-black leading-[0.9] tracking-[-0.05em] mb-24"
+            style={{ fontSize: headingLG }}
+          >
+            MY
+            <br />
+            JOURNEY.
+          </h2>
+        </Reveal>
 
         <div className="space-y-14">
-          {journey.map((item) => (
-            <div
+          {journey.map((item, index) => (
+            <Reveal
               key={item.stage}
-              className="
-                grid
-                lg:grid-cols-12
-                gap-8
-                border-b
-                border-zinc-800
-                pb-12
-              "
+              delay={index * 0.12}
             >
-              <div className="lg:col-span-2">
-                <span className="text-violet-400 text-2xl font-bold">
-                  {item.stage}
-                </span>
-              </div>
+              <div
+                className="
+                  grid
+                  lg:grid-cols-12
+                  gap-8
+                  border-b
+                  border-zinc-800
+                  pb-12
+                "
+              >
+                <div className="lg:col-span-2">
 
-              <div className="lg:col-span-10">
-                <h3 className="text-3xl font-bold mb-5">
-                  {item.title}
-                </h3>
+                  <span
+                    className="
+                      text-5xl
+                      font-black
+                      text-zinc-700
+                      tracking-[-0.04em]
+                    "
+                  >
+                    {item.stage}
+                  </span>
 
-                <p className="text-zinc-400 leading-8 max-w-3xl">
-                  {item.desc}
-                </p>
+                </div>
+
+                <div className="lg:col-span-10">
+
+                  <h3 className="text-2xl md:text-3xl font-bold mb-5">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-zinc-400 leading-8 max-w-3xl">
+                    {item.desc}
+                  </p>
+
+                </div>
+
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
+
       </div>
     </section>
   );
