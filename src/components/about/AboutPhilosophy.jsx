@@ -21,7 +21,7 @@ const principles = [
 
 export default function AboutPhilosophy() {
   return (
-    <section className="relative py-56 bg-black overflow-hidden">
+    <section className="about-philosophy relative -mt-28 py-56 bg-black overflow-hidden z-30">
 
       {/* Background Word */}
 

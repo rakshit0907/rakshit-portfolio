@@ -4,7 +4,7 @@ import Reveal from "../ui/Reveal";
 
 export default function AboutTech() {
   return (
-    <section className="relative py-56 bg-black overflow-hidden">
+    <section className="about-tech relative -mt-32 py-60 bg-black overflow-hidden z-40">
       {/* Background Word */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span
@@ -93,7 +93,7 @@ export default function AboutTech() {
                         "
                       >
                         <Icon
-                          size={tech.size || 52}
+                          size={tech.size ?? 52}
                           color={tech.color}
                         />
                       </div>

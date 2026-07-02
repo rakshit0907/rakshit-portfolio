@@ -30,7 +30,7 @@ const journey = [
 
 export default function AboutJourney() {
   return (
-    <section className="relative py-52 bg-black overflow-hidden">
+    <section className="about-journey relative -mt-28 py-52 bg-black z-20">
 
       {/* Background Number */}
 

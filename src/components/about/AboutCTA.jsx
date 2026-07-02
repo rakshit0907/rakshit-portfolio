@@ -3,7 +3,7 @@ import Reveal from "../ui/Reveal";
 
 export default function AboutCTA() {
   return (
-    <section className="about-cta relative py-64 bg-black overflow-hidden">
+    <section className="about-cta relative -mt-24 py-64 bg-black overflow-hidden z-60">
 
       {/* Background Word */}
 

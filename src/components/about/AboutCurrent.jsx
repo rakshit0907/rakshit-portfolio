@@ -3,7 +3,7 @@ import Reveal from "../ui/Reveal";
 
 export default function AboutCurrent() {
   return (
-    <section className="relative py-56 bg-black overflow-hidden">
+    <section className="about-current relative -mt-24 py-56 bg-black overflow-hidden z-50">
 
       {/* Background */}
 

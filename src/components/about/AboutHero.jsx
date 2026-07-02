@@ -1,9 +1,8 @@
-import useAboutHeroAnimation from "../../hooks/useAboutHeroAnimation";
+import useAboutExperience from "../../hooks/useAboutExperience";
 import { headingXL } from "../../utils/typography";
 import Reveal from "../ui/Reveal";
 
 export default function AboutHero() {
-  useAboutHeroAnimation();
 
   return (
     <section className="about-hero relative min-h-screen bg-black overflow-hidden">

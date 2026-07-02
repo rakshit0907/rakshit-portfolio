@@ -6,11 +6,11 @@ import AboutPhilosophy from "../components/about/AboutPhilosophy";
 import AboutTech from "../components/about/AboutTech";
 import AboutCurrent from "../components/about/AboutCurrent";
 import AboutCTA from "../components/about/AboutCTA";
-
+import useAboutExperience from "../hooks/useAboutExperience";
 import useAboutParallax from "../hooks/useAboutParallax";
 
 export default function About() {
-  useAboutParallax();
+  useAboutExperience();
 
   return (
     <section className="relative bg-black text-white">

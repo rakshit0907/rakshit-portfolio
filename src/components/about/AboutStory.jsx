@@ -3,7 +3,7 @@ import Reveal from "../ui/Reveal";
 
 export default function AboutStory() {
   return (
-    <section className="relative pt-64 pb-52 bg-black overflow-hidden">
+    <section className="about-story relative -mt-32 pt-72 pb-44 bg-black z-10">
 
       {/* Huge Background Number */}
 
