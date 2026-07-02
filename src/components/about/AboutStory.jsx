@@ -3,25 +3,43 @@ import Reveal from "../ui/Reveal";
 
 export default function AboutStory() {
   return (
-    <section className="relative pt-52 pb-40 bg-gradient-to-b from-transparent via-black-to-black">
+    <section className="relative pt-64 pb-52 bg-black overflow-hidden">
 
-      <div className="max-w-7xl mx-auto px-10 relative">
+      {/* Huge Background Number */}
 
-        <div className="grid lg:grid-cols-12 gap-20">
+      <div className="absolute top-20 right-10 pointer-events-none select-none">
 
-          {/* Left */}
+        <span
+          className="
+            text-[28vw]
+            font-black
+            leading-none
+            tracking-[-0.08em]
+            text-white/[0.025]
+          "
+        >
+          01
+        </span>
+
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-10">
+
+        <div className="grid lg:grid-cols-12 gap-24">
+
+          {/* LEFT */}
 
           <div className="lg:col-span-4">
 
             <Reveal y={20}>
-              <p className="uppercase tracking-[0.45em] text-violet-400 text-xs mb-8">
-                My Story
+              <p className="uppercase tracking-[0.5em] text-violet-400 text-xs mb-8">
+                Chapter One
               </p>
             </Reveal>
 
             <Reveal>
               <h2
-                className="font-black leading-[0.88] tracking-[-0.06em]"
+                className="font-black leading-[0.86] tracking-[-0.06em]"
                 style={{
                   fontSize: headingLG,
                 }}
@@ -38,46 +56,105 @@ export default function AboutStory() {
 
           </div>
 
-          {/* Right */}
+          {/* RIGHT */}
 
           <div className="lg:col-span-8">
 
             <Reveal delay={0.2}>
-              <p
+
+              <h3
                 className="
-                  text-3xl
-                  leading-[1.8]
-                  text-zinc-100
-                  font-light
+                  text-5xl
+                  md:text-6xl
+                  font-black
+                  leading-[1.05]
+                  tracking-[-0.05em]
                   max-w-4xl
                 "
               >
-                I'm <span className="font-semibold text-white">Rakshit Pandey</span>,
-                a Computer Science student passionate about crafting digital
-                products that combine engineering, creativity and purposeful
-                user experiences.
-              </p>
+                I DON'T BUILD
+                <br />
+                SOFTWARE.
+                <br />
+                <span className="text-violet-400">
+                  I BUILD EXPERIENCES.
+                </span>
+              </h3>
+
             </Reveal>
 
-            <div className="mt-16 grid md:grid-cols-2 gap-10">
+            <Reveal delay={0.35}>
 
-              <Reveal delay={0.35}>
-                <p className="text-lg leading-9 text-zinc-500">
-                  I enjoy building scalable full-stack applications using
-                  React, Node.js and MongoDB while constantly exploring better
-                  architecture and cleaner engineering practices.
-                </p>
+              <p className="mt-14 text-xl leading-10 text-zinc-400 max-w-3xl">
+                Technology has always been more than code for me.
+                Every project is an opportunity to create something
+                people genuinely enjoy using, remember interacting with,
+                and trust because of how thoughtfully it was built.
+              </p>
+
+            </Reveal>
+
+            {/* Philosophy Grid */}
+
+            <div className="grid md:grid-cols-2 gap-12 mt-24">
+
+              <Reveal delay={0.45}>
+
+                <div className="border-t border-zinc-800 pt-6">
+
+                  <span className="text-violet-400 text-sm tracking-[0.3em] uppercase">
+                    Engineer
+                  </span>
+
+                  <p className="mt-5 text-zinc-500 leading-8">
+                    I enjoy solving complex technical problems through
+                    scalable architecture, clean code and modern engineering
+                    practices.
+                  </p>
+
+                </div>
+
               </Reveal>
 
-              <Reveal delay={0.5}>
-                <p className="text-lg leading-9 text-zinc-500">
-                  More recently, my focus has shifted towards immersive web
-                  experiences with Three.js, GSAP and AI, where technology
-                  meets storytelling and design.
-                </p>
+              <Reveal delay={0.55}>
+
+                <div className="border-t border-zinc-800 pt-6">
+
+                  <span className="text-violet-400 text-sm tracking-[0.3em] uppercase">
+                    Creator
+                  </span>
+
+                  <p className="mt-5 text-zinc-500 leading-8">
+                    Beyond functionality, I focus on creating digital
+                    experiences where motion, design and storytelling work
+                    together seamlessly.
+                  </p>
+
+                </div>
+
               </Reveal>
 
             </div>
+
+            {/* Personal Story */}
+
+            <Reveal delay={0.65}>
+
+              <div className="mt-28 border-t border-zinc-900 pt-12">
+
+                <p className="text-zinc-300 text-2xl leading-[1.9] max-w-4xl">
+
+                  I'm <span className="font-semibold text-white">Rakshit Pandey</span>,
+                  a Computer Science student constantly exploring the intersection
+                  of full-stack engineering, immersive web experiences and AI.
+                  My ambition isn't simply to become a software developer—
+                  it's to build products that leave a lasting impression.
+
+                </p>
+
+              </div>
+
+            </Reveal>
 
           </div>
 
