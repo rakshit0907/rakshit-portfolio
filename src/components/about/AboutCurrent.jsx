@@ -1,131 +1,159 @@
-import { headingLG } from "../../utils/typography";
+import { headingXL } from "../../utils/typography";
 import Reveal from "../ui/Reveal";
 
 export default function AboutCurrent() {
   return (
-    <section className="relative py-48 bg-black overflow-hidden">
+    <section className="relative py-56 bg-black overflow-hidden">
 
-      <div className="max-w-7xl mx-auto px-10">
+      {/* Background */}
 
-        {/* Label */}
-        <Reveal y={40}>
-          <p className="uppercase tracking-[0.35em] text-violet-400 text-xs mb-6">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+
+        <h1
+          className="
+            text-[20vw]
+            font-black
+            tracking-[-0.08em]
+            text-white/[0.025]
+          "
+        >
+          NOW
+        </h1>
+
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-10">
+
+        <Reveal y={30}>
+          <p className="uppercase tracking-[0.45em] text-violet-400 text-xs">
             Current Focus
           </p>
         </Reveal>
 
-        {/* Heading */}
         <Reveal delay={0.1}>
           <h2
-            className="font-black leading-[0.9] tracking-[-0.05em] mb-20"
+            className="mt-8 font-black leading-[0.86] tracking-[-0.06em]"
             style={{
-              fontSize: headingLG,
+              fontSize: headingXL,
             }}
           >
             BUILDING
             <br />
-            THE NEXT
+            SOMETHING
             <br />
-            CHAPTER.
+            BIGGER.
           </h2>
         </Reveal>
 
-        {/* Featured Card */}
-        <Reveal delay={0.2}>
-          <div
-            className="
-              relative
-              rounded-[36px]
-              border
-              border-zinc-800
-              bg-gradient-to-br
-              from-zinc-900/90
-              via-zinc-900
-              to-black
-              p-12
-              overflow-hidden
-              transition-all
-              duration-500
-              hover:border-violet-500/40
-              hover:shadow-[0_0_60px_rgba(139,92,246,0.12)]
-            "
-          >
+        <div className="mt-32 grid lg:grid-cols-12 gap-24">
 
-            {/* Glow */}
-            <div className="absolute -top-40 right-0 w-96 h-96 rounded-full bg-violet-500/10 blur-[120px]" />
+          {/* Left */}
 
-            <div className="relative z-10">
+          <div className="lg:col-span-4">
 
-              <Reveal delay={0.3}>
-                <span className="uppercase tracking-[0.3em] text-violet-400 text-xs">
-                  Featured Project
-                </span>
+            <Reveal delay={0.2}>
+
+              <span className="uppercase tracking-[0.4em] text-zinc-600 text-xs">
+                Featured Project
+              </span>
+
+            </Reveal>
+
+            <Reveal delay={0.3}>
+
+              <h3
+                className="
+                  mt-8
+                  text-5xl
+                  font-black
+                  leading-tight
+                  tracking-[-0.04em]
+                "
+              >
+                Multi-Tenant
+                <br />
+                SaaS Platform
+              </h3>
+
+            </Reveal>
+
+          </div>
+
+          {/* Right */}
+
+          <div className="lg:col-span-8">
+
+            <Reveal delay={0.35}>
+
+              <p className="text-3xl leading-[1.8] font-light text-zinc-100">
+
+                I'm building a production-ready SaaS platform focused on
+                scalability, security and maintainable architecture.
+                More than shipping another project, the goal is to understand
+                how real software is engineered from the ground up.
+
+              </p>
+
+            </Reveal>
+
+            <div className="mt-20 space-y-12">
+
+              <Reveal delay={0.45}>
+
+                <div className="border-l-2 border-violet-500 pl-8">
+
+                  <h4 className="text-white text-xl font-semibold">
+                    Architecture
+                  </h4>
+
+                  <p className="mt-4 text-zinc-500 leading-8">
+                    Multi-tenant architecture built with React, Node.js,
+                    Express and MongoDB.
+                  </p>
+
+                </div>
+
               </Reveal>
 
-              <Reveal delay={0.4}>
-                <h3 className="mt-6 text-5xl font-black leading-tight">
-                  Multi-Tenant
-                  <br />
-                  SaaS Platform
-                </h3>
+              <Reveal delay={0.55}>
+
+                <div className="border-l-2 border-violet-500 pl-8">
+
+                  <h4 className="text-white text-xl font-semibold">
+                    Current Focus
+                  </h4>
+
+                  <p className="mt-4 text-zinc-500 leading-8">
+                    Authentication, RBAC, scalable APIs and production-ready
+                    engineering practices.
+                  </p>
+
+                </div>
+
               </Reveal>
 
-              <Reveal delay={0.5}>
-                <p className="mt-10 text-zinc-300 text-xl leading-10 max-w-4xl">
-                  I'm designing a scalable SaaS platform with secure authentication,
-                  role-based access control and a modern full-stack architecture.
-                  The goal isn't simply to build another web application—it's to
-                  understand how production-grade software is designed, scaled and
-                  maintained.
-                </p>
+              <Reveal delay={0.65}>
+
+                <div className="border-l-2 border-violet-500 pl-8">
+
+                  <h4 className="text-white text-xl font-semibold">
+                    Long-Term Vision
+                  </h4>
+
+                  <p className="mt-4 text-zinc-500 leading-8">
+                    Build software that solves meaningful problems while
+                    continuously learning cloud computing, AI and system design.
+                  </p>
+
+                </div>
+
               </Reveal>
-
-              {/* Highlights */}
-
-              <div className="grid md:grid-cols-3 gap-8 mt-16">
-
-                <Reveal delay={0.65}>
-                  <div className="border-t border-zinc-800 pt-6">
-                    <h4 className="text-white font-semibold">
-                      Architecture
-                    </h4>
-
-                    <p className="mt-3 text-zinc-500 leading-8">
-                      Multi-tenant design with scalable backend architecture.
-                    </p>
-                  </div>
-                </Reveal>
-
-                <Reveal delay={0.8}>
-                  <div className="border-t border-zinc-800 pt-6">
-                    <h4 className="text-white font-semibold">
-                      Security
-                    </h4>
-
-                    <p className="mt-3 text-zinc-500 leading-8">
-                      Authentication, authorization and role-based access control.
-                    </p>
-                  </div>
-                </Reveal>
-
-                <Reveal delay={0.95}>
-                  <div className="border-t border-zinc-800 pt-6">
-                    <h4 className="text-white font-semibold">
-                      Vision
-                    </h4>
-
-                    <p className="mt-3 text-zinc-500 leading-8">
-                      Learning how real products evolve from ideas into scalable platforms.
-                    </p>
-                  </div>
-                </Reveal>
-
-              </div>
 
             </div>
 
           </div>
-        </Reveal>
+
+        </div>
 
       </div>
 

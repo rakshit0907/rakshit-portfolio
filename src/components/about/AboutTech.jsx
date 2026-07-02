@@ -1,105 +1,133 @@
 import { techStack } from "../../data/techStack";
-import { headingLG } from "../../utils/typography";
+import { headingXL } from "../../utils/typography";
 import Reveal from "../ui/Reveal";
 
 export default function AboutTech() {
   return (
-    <section className="relative py-40 bg-black overflow-hidden">
+    <section className="relative py-56 bg-black overflow-hidden">
+      {/* Background Word */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        <span
+          className="
+            text-[18vw]
+            font-black
+            tracking-[-0.08em]
+            text-white/[0.025]
+          "
+        >
+          BUILD
+        </span>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-10">
-
+      <div className="relative z-10 max-w-7xl mx-auto px-10">
         {/* Label */}
-        <Reveal y={40}>
-          <p className="uppercase tracking-[0.35em] text-violet-400 text-xs mb-6">
-            Tech Stack
+        <Reveal y={30}>
+          <p className="uppercase tracking-[0.45em] text-violet-400 text-xs mb-8">
+            Tech Ecosystem
           </p>
         </Reveal>
 
         {/* Heading */}
         <Reveal delay={0.1}>
           <h2
-            className="font-black leading-[0.9] tracking-[-0.05em] mb-20"
-            style={{
-              fontSize: headingLG,
-            }}
+            className="font-black leading-[0.86] tracking-[-0.06em]"
+            style={{ fontSize: headingXL }}
           >
-            MY
+            THE TOOLS
             <br />
-            TECH
+            BEHIND
             <br />
-            ECOSYSTEM.
+            THE WORK.
           </h2>
         </Reveal>
 
         {/* Intro */}
         <Reveal delay={0.2}>
-          <div className="max-w-3xl mb-20">
-            <p className="text-2xl text-zinc-300 leading-[1.8]">
-              Every technology I use has a purpose. I choose tools that help me
-              build scalable, performant and user-focused digital products.
-            </p>
+          <div className="grid lg:grid-cols-12 gap-20 mt-28">
+            <div className="lg:col-span-3">
+              <p className="uppercase tracking-[0.45em] text-zinc-600 text-xs">
+                MY STACK
+              </p>
+            </div>
+
+            <div className="lg:col-span-9">
+              <p className="text-3xl leading-[1.8] font-light text-zinc-100 max-w-5xl">
+                Technology is never the goal. It's simply the medium I use to
+                transform ideas into scalable, performant and memorable digital
+                experiences.
+              </p>
+            </div>
           </div>
         </Reveal>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Technologies */}
+        <div className="mt-36">
+          {techStack.map((tech, index) => {
+            const Icon = tech.icon;
 
-          {techStack.map((tech, index) => (
-
-            <Reveal
-              key={tech.name}
-              delay={0.3 + index * 0.08}
-            >
-
-              <div
-                className="
-                  group
-                  h-full
-                  rounded-[28px]
-                  border
-                  border-zinc-800
-                  bg-gradient-to-b
-                  from-zinc-900/70
-                  to-black
-                  p-8
-                  transition-all
-                  duration-500
-                  hover:border-violet-500/50
-                  hover:-translate-y-2
-                  hover:shadow-[0_0_40px_rgba(139,92,246,0.15)]
-                "
+            return (
+              <Reveal
+                key={tech.name}
+                delay={index * 0.05}
               >
-
                 <div
                   className="
-                    text-5xl
-                    transition-transform
+                    group
+                    border-t
+                    border-zinc-800
+                    py-10
+                    transition-all
                     duration-500
-                    group-hover:scale-110
+                    hover:border-violet-500/40
                   "
-                  style={{ color: tech.color }}
                 >
-                  {tech.icon}
+                  <div className="grid lg:grid-cols-12 gap-10 items-center">
+                    {/* Icon */}
+                    <div className="lg:col-span-2">
+                      <div
+                        className="
+                          transition-transform
+                          duration-500
+                          group-hover:scale-110
+                          group-hover:rotate-6
+                        "
+                      >
+                        <Icon
+                          size={tech.size || 52}
+                          color={tech.color}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Name */}
+                    <div className="lg:col-span-4">
+                      <h3
+                        className="
+                          text-4xl
+                          font-black
+                          tracking-[-0.04em]
+                          transition-colors
+                          duration-300
+                          group-hover:text-violet-300
+                        "
+                      >
+                        {tech.name}
+                      </h3>
+                    </div>
+
+                    {/* Description */}
+                    <div className="lg:col-span-6">
+                      <p className="text-zinc-500 leading-8">
+                        {tech.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-
-                <h3 className="mt-8 text-2xl font-bold text-white">
-                  {tech.name}
-                </h3>
-
-                <p className="mt-4 text-zinc-500 leading-8">
-                  {tech.description}
-                </p>
-
-              </div>
-
-            </Reveal>
-
-          ))}
-
+              </Reveal>
+            );
+          })}
         </div>
-
       </div>
-
     </section>
   );
 }

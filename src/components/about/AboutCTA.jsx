@@ -3,105 +3,111 @@ import Reveal from "../ui/Reveal";
 
 export default function AboutCTA() {
   return (
-    <section className="about-cta relative py-56 bg-black overflow-hidden">
+    <section className="about-cta relative py-64 bg-black overflow-hidden">
 
       {/* Background Word */}
-      <h1
-        className="
-          create-bg-title
-          absolute
-          inset-0
-          flex
-          items-center
-          justify-center
-          pointer-events-none
-          select-none
-          text-[18vw]
-          font-black
-          tracking-[-0.08em]
-          text-white/[0.04]
-          leading-none
-        "
-      >
-        CREATE
-      </h1>
+
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+
+        <h1
+          className="
+            text-[20vw]
+            font-black
+            tracking-[-0.08em]
+            text-white/[0.025]
+          "
+        >
+          NEXT
+        </h1>
+
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-10">
 
-        <Reveal y={40}>
-          <p className="uppercase tracking-[0.35em] text-violet-400 text-xs mb-8">
-            Let's Build Together
+        <Reveal y={30}>
+          <p className="uppercase tracking-[0.45em] text-violet-400 text-xs">
+            Final Chapter
           </p>
         </Reveal>
 
         <Reveal delay={0.1}>
           <h2
-            className="font-black leading-[0.88] tracking-[-0.05em]"
+            className="mt-8 font-black leading-[0.86] tracking-[-0.06em]"
             style={{
               fontSize: headingXL,
             }}
           >
-            LET'S CREATE
+            WHAT
             <br />
-            SOMETHING
+            SHALL WE
             <br />
-            THAT PEOPLE
+            BUILD
             <br />
-            REMEMBER.
+            NEXT?
           </h2>
         </Reveal>
 
-        <div className="grid lg:grid-cols-12 gap-16 mt-24">
+        <div className="grid lg:grid-cols-12 gap-24 mt-28">
+
+          {/* Left */}
 
           <div className="lg:col-span-7">
 
             <Reveal delay={0.25}>
-              <p className="text-3xl leading-[1.8] text-zinc-100 font-light max-w-3xl">
-                Whether it's a product, a startup, or an ambitious idea,
-                I'm always excited to collaborate with people who want to
-                build meaningful digital experiences.
+              <p className="text-3xl leading-[1.8] font-light text-zinc-100 max-w-4xl">
+
+                Every meaningful product starts with a conversation.
+                If you have an ambitious idea, let's transform it into
+                something people genuinely enjoy using.
+
               </p>
             </Reveal>
 
           </div>
 
+          {/* Right */}
+
           <div className="lg:col-span-5 flex lg:justify-end items-end">
 
-            <div>
+            <Reveal delay={0.4}>
 
-              <Reveal delay={0.4}>
-                <p className="text-zinc-500 leading-8 mb-8">
-                  Ready to start a conversation?
-                </p>
-              </Reveal>
+              <button
+                className="
+                  group
+                  px-12
+                  py-5
+                  rounded-full
+                  border
+                  border-white
+                  text-white
+                  font-semibold
+                  transition-all
+                  duration-500
+                  hover:bg-white
+                  hover:text-black
+                  hover:scale-105
+                "
+              >
 
-              <Reveal delay={0.55}>
-                <button
-                  className="
-                    group
-                    px-10
-                    py-5
-                    rounded-full
-                    bg-white
-                    text-black
-                    font-semibold
-                    transition-all
-                    duration-300
-                    hover:bg-violet-400
-                    hover:scale-105
-                    hover:shadow-[0_0_35px_rgba(168,85,247,0.35)]
-                  "
-                >
-                  <span className="inline-flex items-center gap-3">
-                    Get In Touch
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
+                <span className="flex items-center gap-4">
+
+                  Start a Conversation
+
+                  <span
+                    className="
+                      transition-transform
+                      duration-500
+                      group-hover:translate-x-2
+                    "
+                  >
+                    →
                   </span>
-                </button>
-              </Reveal>
 
-            </div>
+                </span>
+
+              </button>
+
+            </Reveal>
 
           </div>
 

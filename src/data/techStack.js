@@ -1,72 +1,91 @@
+import { FaReact, FaNodeJs, FaDocker, FaGitAlt } from "react-icons/fa";
+import {
+  SiMongodb,
+  SiExpress,
+  SiJavascript,
+  SiThreedotjs,
+  SiGreensock,
+} from "react-icons/si";
+import { BsStars } from "react-icons/bs";
+
 export const techStack = [
   {
     name: "React",
+    icon: FaReact,
     color: "#61DAFB",
-    icon: "⚛",
-    description:
-      "Building modern, responsive and component-driven user interfaces.",
+    size: 58,
+    description: "Building modern, fast and interactive user interfaces.",
   },
   {
     name: "Three.js",
-    color: "#ffffff",
-    icon: "◉",
+    icon: SiThreedotjs,
+    color: "#FFFFFF",
+    size: 46,
     description:
-      "Creating immersive 3D experiences that blend storytelling and interaction.",
+      "Creating immersive 3D experiences that blend storytelling with technology.",
   },
   {
     name: "GSAP",
+    icon: SiGreensock,
     color: "#88CE02",
-    icon: "▲",
+    size: 48,
     description:
-      "Crafting smooth, cinematic animations with high-performance motion.",
+      "Crafting cinematic animations and premium motion experiences.",
   },
   {
     name: "Node.js",
+    icon: FaNodeJs,
     color: "#6CC24A",
-    icon: "⬢",
+    size: 54,
     description:
-      "Developing scalable backend services, APIs and business logic.",
+      "Powering scalable backend systems and high-performance APIs.",
   },
   {
     name: "MongoDB",
+    icon: SiMongodb,
     color: "#47A248",
-    icon: "⬣",
+    size: 50,
     description:
-      "Designing flexible NoSQL databases for modern web applications.",
+      "Designing flexible databases for modern scalable applications.",
   },
   {
     name: "Express",
-    color: "#ffffff",
-    icon: "◈",
+    icon: SiExpress,
+    color: "#FFFFFF",
+    size: 48,
     description:
-      "Building secure and efficient REST APIs with clean architecture.",
+      "Building clean, lightweight and efficient backend architecture.",
   },
   {
     name: "JavaScript",
+    icon: SiJavascript,
     color: "#F7DF1E",
-    icon: "JS",
+    size: 50,
     description:
-      "The language behind interactive, dynamic and modern web experiences.",
+      "The language connecting creativity with engineering.",
   },
   {
     name: "Git",
+    icon: FaGitAlt,
     color: "#F05032",
-    icon: "⌘",
+    size: 50,
     description:
-      "Managing projects, collaboration and version control with confidence.",
+      "Managing collaboration, version control and continuous development.",
   },
   {
     name: "Docker",
+    icon: FaDocker,
     color: "#2496ED",
-    icon: "⬡",
+    size: 56,
     description:
-      "Containerizing applications for consistent development and deployment.",
+      "Creating reliable development and deployment environments.",
   },
   {
     name: "AI",
+    icon: BsStars,
     color: "#A855F7",
-    icon: "✦",
+    size: 46,
     description:
-      "Exploring intelligent systems, automation and AI-powered applications.",
+      "Exploring intelligent systems that enhance digital experiences.",
   },
 ];
