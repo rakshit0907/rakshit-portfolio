@@ -12,81 +12,84 @@ export default function Navbar() {
   return (
     <header
       className="
-      fixed
-      top-6
-      left-1/2
-      -translate-x-1/2
-      z-50
+        fixed
+        top-8
+        left-1/2
+        -translate-x-1/2
+        z-50
+        w-full
+        px-8
       "
     >
-      <nav
+      <div
         className="
-        flex
-        items-center
-        gap-2
-
-        rounded-full
-
-        border
-        border-white/10
-
-        bg-white/5
-        backdrop-blur-xl
-
-        px-3
-        py-3
-
-        shadow-[0_8px_40px_rgba(0,0,0,0.4)]
-      "
+          max-w-7xl
+          mx-auto
+          flex
+          justify-center
+        "
       >
-        {links.map((link) => (
-          <NavLink
-            key={link.path}
-            to={link.path}
-            className="relative"
-          >
-            {({ isActive }) => (
-              <div className="relative px-5 py-2">
-                {isActive && (
-                  <motion.div
-                    layoutId="navbar-pill"
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 30,
-                    }}
+        <nav
+          className="
+            flex
+            items-center
+            gap-12
+            py-4
+          "
+        >
+          {links.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className="relative"
+            >
+              {({ isActive }) => (
+                <div className="relative pb-2">
+
+                  <span
                     className="
-                    absolute
-                    inset-0
-
-                    rounded-full
-
-                    bg-white
+                      text-sm
+                      uppercase
+                      tracking-[0.25em]
+                      transition-all
+                      duration-300
                     "
-                  />
-                )}
+                    style={{
+                      color: isActive
+                        ? "var(--text)"
+                        : "var(--text-soft)",
+                    }}
+                  >
+                    {link.name}
+                  </span>
 
-                <span
-                  className={`
-                  relative
-                  z-10
-
-                  transition-colors
-
-                  ${
-                    isActive
-                      ? "text-black"
-                      : "text-zinc-300"
-                  }
-                `}
-                >
-                  {link.name}
-                </span>
-              </div>
-            )}
-          </NavLink>
-        ))}
-      </nav>
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-line"
+                      transition={{
+                        type: "spring",
+                        stiffness: 450,
+                        damping: 35,
+                      }}
+                      className="
+                        absolute
+                        left-0
+                        right-0
+                        -bottom-1
+                        h-[2px]
+                        rounded-full
+                      "
+                      style={{
+                        background: "var(--accent)",
+                      }}
+                    />
+                  )}
+                </div>
+              )}
+            </NavLink>
+          ))}
+        </nav>
+      </div>
     </header>
   );
 }
