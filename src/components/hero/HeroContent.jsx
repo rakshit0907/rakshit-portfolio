@@ -4,7 +4,7 @@ export default function HeroContent() {
   return (
     <div className="absolute inset-0 z-20 pointer-events-none flex flex-col justify-end pb-20">
 
-      <div className="max-w-7xl mx-auto w-full px-10">
+      <div className="max-w-5xl mx-auto w-full px-10">
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
@@ -12,7 +12,8 @@ export default function HeroContent() {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="hero-tagline uppercase tracking-[0.5em] text-cyan-300 text-sm mb-4"
         >
-          Creative Full Stack Developer
+          FULL STACK ENGINEER
+          CRAFTING MODERN DIGITAL EXPERIENCES
         </motion.p>
 
         <motion.h1
