@@ -1,5 +1,5 @@
 import useAboutExperience from "../../hooks/useAboutExperience";
-import { headingXL } from "../../utils/typography";
+import { headingXL } from "../../theme";
 import Reveal from "../ui/Reveal";
 
 export default function AboutHero() {

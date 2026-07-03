@@ -1,4 +1,4 @@
-import { headingXL } from "../../utils/typography";
+import { headingXL } from "../../theme";
 import Reveal from "../ui/Reveal";
 
 const principles = [

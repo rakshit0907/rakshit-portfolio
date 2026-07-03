@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { headingXL, bodyLG } from "../../utils/typography";
+import { headingXL } from "../../theme";
 
 export default function HeroContent() {
   return (
