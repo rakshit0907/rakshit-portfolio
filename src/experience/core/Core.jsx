@@ -14,6 +14,7 @@ export default function Core() {
     >
       <group>
        <Corridor />
+       <StructuralSpine />
         <CoreFrames />
         <CoreConnections />
         <CoreJoints />
