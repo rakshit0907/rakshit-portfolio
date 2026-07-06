@@ -1,49 +1,34 @@
 export default function HeroBackground() {
   return (
     <>
-      {/* Base background */}
+      {/* Base */}
       <div className="absolute inset-0 bg-[#050505]" />
 
-      {/* Violet glow */}
-      <div
-        className="
-          absolute
-          left-1/2
-          top-1/2
-          h-[700px]
-          w-[700px]
-          -translate-x-1/2
-          -translate-y-1/2
-          rounded-full
-          blur-[180px]
-          opacity-20
-          bg-violet-600
-        "
-      />
-
-      {/* Cyan glow */}
-      <div
-        className="
-          absolute
-          right-[-10%]
-          top-[20%]
-          h-[500px]
-          w-[500px]
-          rounded-full
-          blur-[180px]
-          opacity-10
-          bg-cyan-500
-        "
-      />
-
-      {/* Vignette */}
+      {/* Subtle radial light */}
       <div
         className="
           absolute
           inset-0
-          pointer-events-none
-          bg-[radial-gradient(circle_at_center,transparent_40%,#050505_100%)]
+          opacity-40
         "
+        style={{
+          background:
+            "radial-gradient(circle at 70% 40%, rgba(255,255,255,0.06), transparent 55%)",
+        }}
+      />
+
+      {/* Noise Overlay */}
+      <div
+        className="
+          absolute
+          inset-0
+          opacity-[0.025]
+          mix-blend-screen
+        "
+        style={{
+          backgroundImage:
+            "url('https://grainy-gradients.vercel.app/noise.svg')",
+        }}
       />
     </>
   );

@@ -1,19 +1,29 @@
-import Experience from "../experience/Experience";
+import HeroBackground from "../components/hero/HeroBackground";
+import HeroArchitecture from "../components/hero/HeroArchitecture";
 import HeroContent from "../components/hero/HeroContent";
 import HeroScrollIndicator from "../components/hero/HeroScrollIndicator";
-import useHeroPin from "../hooks/useHeroPin";
-import HeroBackground from "../components/hero/HeroBackground";
+
 export default function Hero() {
-  useHeroPin();
-
   return (
-    <section className="hero-section relative h-screen overflow-hidden">
+    <section
+      className="
+        hero-section
+        relative
+        h-screen
+        overflow-hidden
+        bg-[#050505]
+      "
+    >
+      {/* Background */}
       <HeroBackground />
-      <div className="absolute inset-0">
-        <Experience />
-      </div>
 
+      {/* Digital Architecture */}
+      <HeroArchitecture />
+
+      {/* Typography */}
       <HeroContent />
+
+      {/* Scroll Indicator */}
       <HeroScrollIndicator />
     </section>
   );

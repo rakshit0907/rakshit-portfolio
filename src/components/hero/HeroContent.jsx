@@ -1,40 +1,37 @@
 import { motion } from "framer-motion";
-import { headingXL } from "../../theme";
+import { headingXL, bodyLG } from "../../theme";
 
 export default function HeroContent() {
   return (
     <div className="absolute inset-0 z-20 pointer-events-none">
-      <div className="h-full max-w-7xl mx-auto px-8 md:px-12 lg:px-16 flex items-center">
+      <div className="h-full max-w-7xl mx-auto px-8 md:px-12 lg:px-20 flex items-center">
 
         <div className="max-w-3xl">
 
-          {/* Small Label */}
+          {/* Label */}
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.8,
-              delay: 0.3,
+              delay: 0.25,
             }}
             className="
               uppercase
-              tracking-[0.45em]
+              tracking-[0.55em]
               text-[11px]
-              font-medium
+              text-zinc-500
               mb-8
             "
-            style={{
-              color: "var(--accent)",
-            }}
           >
-            SOFTWARE ENGINEER
+            ENGINEER • DESIGNER • BUILDER
           </motion.p>
 
           {/* Name */}
 
           <motion.h1
-            initial={{ opacity: 0, y: 80 }}
+            initial={{ opacity: 0, y: 70 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 1,
@@ -42,17 +39,34 @@ export default function HeroContent() {
             }}
             className="
               font-black
-              uppercase
-              leading-[0.82]
-              tracking-[-0.08em]
+              leading-[0.88]
+              tracking-[-0.06em]
+              text-zinc-100
             "
             style={{
               fontSize: headingXL,
-              color: "var(--text)",
             }}
           >
             RAKSHIT
-            <br />
+          </motion.h1>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 70 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1,
+              delay: 0.58,
+            }}
+            className="
+              font-black
+              leading-[0.88]
+              tracking-[-0.06em]
+              text-zinc-300
+            "
+            style={{
+              fontSize: headingXL,
+            }}
+          >
             PANDEY
           </motion.h1>
 
@@ -62,74 +76,87 @@ export default function HeroContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              delay: 0.9,
               duration: 1,
+              delay: 0.9,
             }}
             className="
-              mt-10
+              mt-12
               max-w-xl
-              leading-8
+              leading-9
+              text-zinc-400
             "
             style={{
-              color: "var(--text-soft)",
               fontSize: bodyLG,
             }}
           >
-            I design and engineer modern digital products that combine
-            performance, thoughtful interaction, and scalable architecture
-            to create experiences people enjoy using.
+            I build thoughtful digital products where engineering,
+            motion and design work together to create memorable
+            experiences that feel effortless.
           </motion.p>
 
-          {/* Buttons */}
+          {/* Bottom Row */}
 
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
+              duration: 1,
               delay: 1.2,
-              duration: 0.8,
             }}
-            className="flex gap-5 mt-12 pointer-events-auto"
+            className="
+              mt-16
+              flex
+              items-center
+              gap-12
+              pointer-events-auto
+            "
           >
             <button
               className="
-                px-7
-                py-3
-                rounded-full
-                font-medium
+                group
+                text-sm
+                uppercase
+                tracking-[0.35em]
+                text-zinc-200
                 transition-all
-                duration-300
-                hover:scale-105
+                duration-500
               "
-              style={{
-                background: "var(--text)",
-                color: "var(--bg)",
-              }}
             >
-              Explore Projects
+              Explore Work
+
+              <div
+                className="
+                  mt-3
+                  h-px
+                  w-0
+                  bg-zinc-200
+                  transition-all
+                  duration-500
+                  group-hover:w-full
+                "
+              />
             </button>
+
+            <span className="text-zinc-700">
+              /
+            </span>
 
             <button
               className="
-                px-7
-                py-3
-                rounded-full
-                transition-all
-                duration-300
-                hover:scale-105
+                text-sm
+                uppercase
+                tracking-[0.35em]
+                text-zinc-500
+                hover:text-zinc-200
+                transition-colors
+                duration-500
               "
-              style={{
-                border: "1px solid var(--border)",
-                color: "var(--text)",
-                background: "transparent",
-              }}
             >
-              Get in Touch
+              Contact
             </button>
           </motion.div>
 
         </div>
-
       </div>
     </div>
   );

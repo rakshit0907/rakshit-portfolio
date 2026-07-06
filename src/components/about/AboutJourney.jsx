@@ -1,4 +1,4 @@
-import { headingXL } from "../../theme";
+import { headingLG } from "../../theme";
 import Reveal from "../ui/Reveal";
 
 const journey = [
