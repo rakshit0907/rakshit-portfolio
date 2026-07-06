@@ -1,6 +1,12 @@
 const labels = [
-    "SYSTEM", "MODULE", "NETWORK", "ARCHITECTURE",
+  "MODULE A",
+  "ENGINE",
+  "NETWORK",
+  "FRAME",
+  "NODE",
+  "SYSTEM",
 ];
+
 export default function BlueprintLabels() {
     return (
         <>
@@ -19,5 +25,5 @@ export default function BlueprintLabels() {
           ))}
         </>
     );
-    
+
 }

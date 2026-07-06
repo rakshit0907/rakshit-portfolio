@@ -1,17 +1,25 @@
 import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
 
-export default function CameraRig() {
-  useFrame((state) => {
-    const t = state.clock.elapsedTime;
+export default function CameraRig({ children }) {
 
-    state.camera.position.x =
-      Math.sin(t * 0.12) * 0.18;
+  const group = useRef();
 
-    state.camera.position.y =
-      Math.cos(t * 0.1) * 0.12;
+  useFrame((state)=>{
 
-    state.camera.lookAt(0, 0, 0);
+    group.current.rotation.y =
+      state.clock.elapsedTime * 0.08;
+
   });
 
-  return null;
+  return (
+
+    <group ref={group}>
+
+      {children}
+
+    </group>
+
+  );
+
 }

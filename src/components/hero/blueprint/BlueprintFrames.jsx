@@ -1,14 +1,55 @@
 export default function BlueprintFrames() {
-    return (
-        <>
-          <div
-            className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[42vw] h-[70vh] border border-white/[0.06]"
-            />
+  return (
+    <>
 
-            <div 
-              className="absolute right-[10%] top-1/2 -translate-y-1/2 w-[38vw] h-[62vh] border border-white/[0.04]"
-              />
+      <div
+        className="
+          absolute
 
-        </>
-    );
+          right-[-5%]
+          top-[12%]
+
+          w-[45vw]
+          h-[70vh]
+
+          border
+
+          border-white/[0.05]
+        "
+      />
+
+      <div
+        className="
+          absolute
+
+          right-[6%]
+          top-[20%]
+
+          w-[30vw]
+          h-[52vh]
+
+          border
+
+          border-white/[0.04]
+        "
+      />
+
+      <div
+        className="
+          absolute
+
+          right-[15%]
+          top-[28%]
+
+          w-[14vw]
+          h-[22vh]
+
+          border
+
+          border-white/[0.03]
+        "
+      />
+
+    </>
+  );
 }

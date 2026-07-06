@@ -4,9 +4,9 @@ import { headingXL, bodyLG } from "../../theme";
 export default function HeroContent() {
   return (
     <div className="absolute inset-0 z-20 pointer-events-none">
-      <div className="h-full max-w-7xl mx-auto px-8 md:px-12 lg:px-20 flex items-center">
+      <div className="h-full max-w-none mx-auto px-8 md:px-12 lg:px-20 flex items-center">
 
-        <div className="max-w-3xl">
+        <div className="w-[34vw] ml-24">
 
           {/* Label */}
 

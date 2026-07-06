@@ -16,7 +16,9 @@ export default function BlueprintNodes() {
             w-2
             h-2
             rounded-full
-            bg-white/30
+            border
+            border-white/25
+            bg-[#050505]
           "
           style={node}
         />
