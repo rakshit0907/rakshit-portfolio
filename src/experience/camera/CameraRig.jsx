@@ -6,9 +6,11 @@ export default function CameraRig({ children }) {
   const group = useRef();
 
   useFrame((state)=>{
+    if (!group.current) return;
+    const t = state.clock.elapsedTime;
 
-    group.current.rotation.y =
-      state.clock.elapsedTime * 0.08;
+    group.current.rotation.y = t * 0.12;
+    group.current.rotation.x = Math.sin(t * 0.4) * 0.08;
 
   });
 
