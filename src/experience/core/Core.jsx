@@ -9,10 +9,11 @@ export default function Core() {
   return (
     <Float
       speed={0.6}
-      rotationIntensity={0.15}
-      floatIntensity={0.4}
+      rotationIntensity={0.1}
+      floatIntensity={0.25}
     >
       <group>
+       <Corridor />
         <CoreFrames />
         <CoreConnections />
         <CoreJoints />
