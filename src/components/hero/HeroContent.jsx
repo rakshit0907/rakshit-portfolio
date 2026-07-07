@@ -6,7 +6,7 @@ export default function HeroContent() {
     <div className="absolute inset-0 z-20 pointer-events-none">
       <div className="h-full max-w-none mx-auto px-8 md:px-12 lg:px-20 flex items-center">
 
-        <div className="w-[34vw] ml-24">
+        <div className="w-full px-6 md:w-[34vw] ml-24 md:px-0">
 
           {/* Label */}
 
