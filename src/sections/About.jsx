@@ -11,16 +11,15 @@ import useAboutParallax from "../hooks/useAboutParallax";
 
 export default function About() {
   useAboutExperience();
+  useAboutParallax();
 
   return (
-    <section className="relative bg-black text-white">
-
+    <section className="relative bg-black text-white overflow-hidden">
       <AboutBackground />
 
-      {/* Chapter 01 */}
       <AboutHero />
 
-      {/* Story starts before Hero completely ends */}
+      {/* Story panel overlaps the end of Hero by 18vh, so the two sections feel connected instead of cut apart */}
       <div className="-mt-[18vh] relative z-20">
         <AboutStory />
       </div>
@@ -30,7 +29,6 @@ export default function About() {
       <AboutTech />
       <AboutCurrent />
       <AboutCTA />
-
     </section>
   );
 }

@@ -1,7 +1,8 @@
 :root {
   --bg: #070707;
 
-  --surface: #101010;
+  --surface: #111111;
+  --surface-light: #181818
 
   --text: #F5F5F2;
 
@@ -10,10 +11,10 @@
   --text-muted: #6B7280;
 
   --accent: #5E81AC;
-
-  --accent-soft: rgba(94,129,172,.15);
+  --accent-hover: #6F93BF;
 
   --border: rgba(255,255,255,.08);
+  --border-light: rgba(255,255,255,.12);
 }
 
 

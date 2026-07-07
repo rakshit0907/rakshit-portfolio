@@ -32,31 +32,22 @@ export default function AboutJourney() {
   return (
     <section className="about-journey relative -mt-28 py-52 bg-black z-20">
 
-      {/* Background Number */}
-
       <div className="absolute top-10 right-10 pointer-events-none select-none">
-
         <span className="text-[28vw] font-black tracking-[-0.08em] text-white/[0.025]">
           02
         </span>
-
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-10">
 
         <Reveal y={30}>
-          <p className="uppercase tracking-[0.5em] text-violet-400 text-xs mb-8">
+          <p className="uppercase tracking-[0.5em] text-[#5E81AC] text-xs mb-8">
             Chapter Two
           </p>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2
-            className="font-black leading-[0.86] tracking-[-0.06em] mb-32"
-            style={{
-              fontSize: headingLG,
-            }}
-          >
+          <h2 className="font-black leading-[0.86] tracking-[-0.06em] mb-32" style={{ fontSize: headingLG }}>
             MY
             <br />
             EVOLUTION.
@@ -64,99 +55,64 @@ export default function AboutJourney() {
         </Reveal>
 
         <div>
-
           {journey.map((item, index) => {
-
             const reverse = index % 2 !== 0;
 
             return (
-
-              <Reveal
-                key={item.number}
-                delay={index * 0.08}
-              >
-
+              <Reveal key={item.number} delay={index * 0.08}>
                 <div className="border-t border-zinc-800 py-20">
-
-                  <div
-                    className={`grid lg:grid-cols-12 gap-12 items-start ${
-                      reverse ? "lg:text-right" : ""
-                    }`}
-                  >
+                  <div className={`grid lg:grid-cols-12 gap-12 items-start ${reverse ? "lg:text-right" : ""}`}>
 
                     {!reverse && (
-
                       <>
                         <div className="lg:col-span-3">
-
                           <span className="text-7xl font-black text-zinc-800 tracking-[-0.06em]">
                             {item.number}
                           </span>
-
                         </div>
-
                         <div className="lg:col-span-9">
-
-                          <p className="uppercase tracking-[0.45em] text-violet-400 text-xs mb-5">
+                          <p className="uppercase tracking-[0.45em] text-[#5E81AC] text-xs mb-5">
                             {item.chapter}
                           </p>
-
                           <h3 className="text-5xl font-black leading-tight tracking-[-0.04em]">
                             {item.title}
                           </h3>
-
                           <p className="mt-8 text-zinc-400 text-lg leading-9 max-w-3xl">
                             {item.desc}
                           </p>
-
                         </div>
                       </>
-
                     )}
 
                     {reverse && (
-
                       <>
                         <div className="lg:col-span-9 flex flex-col items-end">
-
-                          <p className="uppercase tracking-[0.45em] text-violet-400 text-xs mb-5">
+                          <p className="uppercase tracking-[0.45em] text-[#5E81AC] text-xs mb-5">
                             {item.chapter}
                           </p>
-
                           <h3 className="text-5xl font-black leading-tight tracking-[-0.04em] max-w-3xl">
                             {item.title}
                           </h3>
-
                           <p className="mt-8 text-zinc-400 text-lg leading-9 max-w-3xl">
                             {item.desc}
                           </p>
-
                         </div>
-
                         <div className="lg:col-span-3 flex justify-end">
-
                           <span className="text-7xl font-black text-zinc-800 tracking-[-0.06em]">
                             {item.number}
                           </span>
-
                         </div>
                       </>
-
                     )}
 
                   </div>
-
                 </div>
-
               </Reveal>
-
             );
           })}
-
         </div>
 
       </div>
-
     </section>
   );
 }
