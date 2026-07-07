@@ -83,7 +83,7 @@ export const techStack = [
   {
     name: "AI",
     icon: BsStars,
-    color: "#A855F7",
+    color: "#5E81AC",
     size: 46,
     description:
       "Exploring intelligent systems that enhance digital experiences.",

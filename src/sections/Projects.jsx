@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { projects } from "../data/projects";
 import ProjectCard from "../components/projects/ProjectCard";
+import ProjectModal from "../components/projects/ProjectModal";
 
 export default function Projects() {
+  const [activeProject, setActiveProject] = useState(null);
+
   return (
     <section className="relative bg-black text-white py-40 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 lg:px-10">
@@ -29,11 +33,13 @@ export default function Projects() {
 
         <div className="mt-32 flex flex-col gap-28">
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard key={project.id} project={project} onOpen={setActiveProject} />
           ))}
         </div>
 
       </div>
+
+      <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
     </section>
   );
 }
