@@ -1,23 +1,37 @@
 import { Float } from "@react-three/drei";
 
-import CoreFrame from "./CoreFrames";
+import FloatingPlanes from "./Architecture/FloatingPlanes";
+import FloatingFrames from "./Architecture/FloatingFrames";
+import FloorGrid from "./Architecture/FloorGrid";
+import ConstructionColumns from "./Architecture/ConstructionColumns";
+
+import StructuralSpine from "./StructuralSpine";
 import CoreConnections from "./CoreConnections";
 import CoreJoints from "./CoreJoints";
-import CoreModules from "./CoreModules";
 
 export default function Core() {
   return (
     <Float
-      speed={0.6}
-      rotationIntensity={0.1}
-      floatIntensity={0.25}
+      speed={0.45}
+      rotationIntensity={0.04}
+      floatIntensity={0.15}
     >
       <group>
-       <Corridor />
-       <StructuralSpine />
-        <CoreFrames />
+
+        <FloorGrid />
+
+        <FloatingPlanes />
+
+        <ConstructionColumns />
+
+        <FloatingFrames />
+
+        <StructuralSpine />
+
         <CoreConnections />
+
         <CoreJoints />
+
       </group>
     </Float>
   );
