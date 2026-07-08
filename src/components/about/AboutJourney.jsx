@@ -11,7 +11,7 @@ const journey = [
 
 export default function AboutJourney() {
   return (
-    <section className="about-journey relative -mt-28 py-52 bg-black z-20">
+    <section className="about-journey relative -mt-28 py-52 bg-black/70 z-20">
 
       <div className="absolute top-10 right-10 pointer-events-none select-none">
         <span className="text-[28vw] font-black tracking-[-0.08em] text-white/[0.025]">

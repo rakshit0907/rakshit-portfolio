@@ -4,7 +4,7 @@ import ChapterFrame from "../ui/ChapterFrame";
 
 export default function AboutStory() {
   return (
-    <section className="about-story relative -mt-32 pt-72 pb-44 bg-black z-10">
+    <section className="about-story relative -mt-32 pt-72 pb-44 bg-black/70 z-10">
 
       <div className="absolute top-20 right-10 pointer-events-none select-none">
         <span className="text-[28vw] font-black leading-none tracking-[-0.08em] text-white/[0.025]">

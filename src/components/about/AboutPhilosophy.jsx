@@ -10,7 +10,7 @@ const principles = [
 
 export default function AboutPhilosophy() {
   return (
-    <section className="about-philosophy relative -mt-28 py-56 bg-black overflow-hidden z-30">
+    <section className="about-philosophy relative -mt-28 py-56 bg-black/70 overflow-hidden z-30">
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span className="text-[18vw] font-black tracking-[-0.08em] text-white/[0.025]">THINK</span>

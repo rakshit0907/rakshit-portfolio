@@ -5,7 +5,7 @@ import ChapterFrame from "../ui/ChapterFrame";
 
 export default function AboutHero() {
   return (
-    <section className="about-hero relative min-h-screen bg-black overflow-hidden">
+    <section className="about-hero relative min-h-screen bg-black/70 overflow-hidden">
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <h1 className="about-bg-title text-[20vw] font-black tracking-[-0.08em] text-white/[0.03] leading-none">

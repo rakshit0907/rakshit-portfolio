@@ -7,7 +7,7 @@ export default function AboutPreview() {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-screen flex items-center px-8 py-32 bg-black">
+    <section className="min-h-screen flex items-center px-8 py-32 bg-black/70">
       <div className="max-w-7xl mx-auto w-full">
         <ChapterFrame index={1} label="ABOUT">
 

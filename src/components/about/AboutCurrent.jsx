@@ -4,7 +4,7 @@ import ChapterFrame from "../ui/ChapterFrame";
 
 export default function AboutCurrent() {
   return (
-    <section className="about-current relative -mt-24 py-56 bg-black overflow-hidden z-50">
+    <section className="about-current relative -mt-24 py-56 bg-black/70 overflow-hidden z-50">
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <h1 className="text-[20vw] font-black tracking-[-0.08em] text-white/[0.025]">NOW</h1>

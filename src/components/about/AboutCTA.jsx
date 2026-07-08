@@ -4,7 +4,7 @@ import ChapterFrame from "../ui/ChapterFrame";
 
 export default function AboutCTA() {
   return (
-    <section className="about-cta relative -mt-24 py-64 bg-black overflow-hidden z-[60]">
+    <section className="about-cta relative -mt-24 py-64 bg-black/70 overflow-hidden z-[60]">
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <h1 className="text-[20vw] font-black tracking-[-0.08em] text-white/[0.025]">NEXT</h1>

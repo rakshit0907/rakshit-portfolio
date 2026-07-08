@@ -8,7 +8,7 @@ export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
 
   return (
-    <section className="relative bg-black text-white py-40 overflow-hidden">
+    <section className="relative bg-black/70 text-white py-40 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 lg:px-10">
         <ChapterFrame index={1} label="PROJECTS">
 

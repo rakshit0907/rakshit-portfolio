@@ -6,14 +6,11 @@ export default function useScrollProgress() {
 
   useEffect(() => {
     const trigger = ScrollTrigger.create({
-      trigger: ".hero-section",
+      trigger: document.body,
       start: "top top",
-      end: "+=200%",
+      end: "bottom bottom",
       scrub: true,
-
-      onUpdate: (self) => {
-        setProgress(self.progress);
-      },
+      onUpdate: (self) => setProgress(self.progress),
     });
 
     return () => trigger.kill();

@@ -5,7 +5,7 @@ import ChapterFrame from "../ui/ChapterFrame";
 
 export default function AboutTech() {
   return (
-    <section className="about-tech relative -mt-32 py-60 bg-black overflow-hidden z-40">
+    <section className="about-tech relative -mt-32 py-60 bg-black/70 overflow-hidden z-40">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span className="text-[18vw] font-black tracking-[-0.08em] text-white/[0.025]">BUILD</span>
       </div>

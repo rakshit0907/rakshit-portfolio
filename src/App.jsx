@@ -2,7 +2,7 @@ import { useState } from "react";
 import CustomCursor from "./components/common/CustomCursor";
 import Loader from "./components/common/Loader";
 import AppRoutes from "./routes/AppRoutes";
-
+import Experience from "./experience/Experience";
 import useLenis from "./hooks/useLenis";
 
 export default function App() {
@@ -13,6 +13,10 @@ export default function App() {
 
   return (
     <>
+      <div className="fixed top-0 left-0 w-screen h-screen z-0 pointer-events-none">
+        <Experience />
+      </div>  
+  
       {!loaded ? (
         <Loader
           onFinish={() =>
@@ -20,12 +24,13 @@ export default function App() {
           }
         />
       ) : (
-        <>
-          <CustomCursor />
+        <div className="relative z-10">
+    
           <AppRoutes />
-        </>  
+        </div>
         
       )}
+      <CustomCursor />
     </>
   );
 }
