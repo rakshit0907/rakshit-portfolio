@@ -5,7 +5,8 @@ import Particles from "../core/Architecture/Particles";
 import Background from "../atmosphere/Background";
 import FloatingGlow from "../atmosphere/FloatingGlow";
 import GradientFog from "../atmosphere/GradientFog";
-
+import ArchitectureGrid from "../core/Architecture/ArchitectureGrid";
+import LightColumns from "../core/Architecture/LightColumns";
 import CentralCore from "../core/Architecture/CentralCore";
 import OrbitRings from "../core/Architecture/OrbitRings";
 import FloatingPanels from "../core/Architecture/FloatingPanels";
@@ -25,6 +26,9 @@ export default function Scene() {
       <FloatingGlow />
 
       <CameraRig scrollProgress={scrollProgress}>
+       <> 
+        <ArchitectureGrid />
+        <LightColumns />
         <group position={[2.8, 0.4, 0]}>
           <Particles/>
           <EnergyLines />
@@ -32,6 +36,7 @@ export default function Scene() {
           <OrbitRings />
           <FloatingPanels />
         </group>
+       </>
       </CameraRig>
     </>
   );
