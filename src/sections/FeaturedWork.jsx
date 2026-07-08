@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useTilt from "../hooks/useTilt";
 import { projects } from "../data/projects";
 import ProjectModal from "../components/projects/ProjectModal";
+import ChapterFrame from "../components/ui/ChapterFrame";
 
 const featured = projects.slice(0, 2);
 
@@ -14,48 +15,45 @@ export default function FeaturedWork() {
   return (
     <section className="min-h-screen px-8 py-32 bg-black">
       <div className="max-w-7xl mx-auto">
+        <ChapterFrame index={2} label="WORK">
 
-        <div className="flex justify-between items-end mb-8 font-mono text-[10px] uppercase tracking-[0.4em]" style={{ color: "var(--text-muted)" }}>
-          <span>SEC.002 / WORK</span>
-          <span>{featured.length} OF {projects.length}</span>
-        </div>
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="uppercase tracking-[0.3em] text-[#5E81AC] mb-8"
+          >
+            Selected Work
+          </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="uppercase tracking-[0.3em] text-[#5E81AC] mb-8"
-        >
-          Selected Work
-        </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-6xl md:text-7xl font-black mb-20"
+          >
+            Featured
+            <br />
+            Projects.
+          </motion.h2>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-6xl md:text-7xl font-black mb-20"
-        >
-          Featured
-          <br />
-          Projects.
-        </motion.h2>
+          <div className="grid lg:grid-cols-2 gap-10">
+            {featured.map((project) => (
+              <ProjectCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
+            ))}
+          </div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
-          {featured.map((project) => (
-            <ProjectCard key={project.id} project={project} onClick={() => setSelectedProject(project)} />
-          ))}
-        </div>
+          <motion.button
+            onClick={() => navigate("/projects")}
+            whileHover={{ x: 6 }}
+            className="mt-16 flex items-center gap-3 text-sm uppercase tracking-[0.3em] text-zinc-300 hover:text-white transition-colors"
+          >
+            See All Projects <span>→</span>
+          </motion.button>
 
-        <motion.button
-          onClick={() => navigate("/projects")}
-          whileHover={{ x: 6 }}
-          className="mt-16 flex items-center gap-3 text-sm uppercase tracking-[0.3em] text-zinc-300 hover:text-white transition-colors"
-        >
-          See All Projects <span>→</span>
-        </motion.button>
+          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
 
-        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-
+        </ChapterFrame>
       </div>
     </section>
   );
