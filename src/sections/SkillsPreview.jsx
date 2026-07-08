@@ -1,63 +1,43 @@
 import { motion } from "framer-motion";
-
-const skills = [
-  "C++",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Express.js",
-  "MongoDB",
-  "MySQL",
-  "Tailwind CSS",
-  "Git",
-  "GitHub",
-  "REST APIs",
-  "JWT Authentication",
-  "Docker",
-  "AWS",
-  "AI Integration",
-  "System Design",
-];
+import { techStack } from "../data/techStack";
 
 export default function SkillsPreview() {
   return (
-    <section className="min-h-screen overflow-hidden py-32">
-      <h2
-        className="
-          text-center
-          text-6xl
-          font-bold
-          mb-24
-        "
-      >
-        Skills
-      </h2>
+    <section className="relative bg-black text-white py-40 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-8 lg:px-10">
 
-      {/* Marquee */}
+        <div className="flex justify-between items-end mb-20 font-mono text-[10px] uppercase tracking-[0.4em]" style={{ color: "var(--text-muted)" }}>
+          <span>SEC.003 / STACK</span>
+          <span>{techStack.length} MODULES</span>
+        </div>
 
-      <div className="overflow-hidden whitespace-nowrap">
-        <motion.div
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 25,
-            ease: "linear",
-          }}
-          className="inline-flex gap-16 text-4xl font-semibold"
-        >
-          {[...skills, ...skills].map((skill, index) => (
-            <span
-              key={index}
-              className="bg-zinc-900 border border-zinc-800 px-6 py-3 rounded-full"
-            >
-              {skill}
-            </span>
-          ))}
-        </motion.div>
+        <h2 className="text-6xl md:text-7xl font-black tracking-[-0.06em] leading-[0.9] mb-24">
+          BUILT WITH
+          <br />
+          PRECISION.
+        </h2>
+
+        {/* Auto-scrolling marquee row */}
+        <div className="relative border-y" style={{ borderColor: "var(--border)" }}>
+          <motion.div
+            className="flex gap-16 py-10 whitespace-nowrap"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          >
+            {[...techStack, ...techStack].map((tech, i) => {
+              const Icon = tech.icon;
+              return (
+                <div key={i} className="flex items-center gap-4 shrink-0">
+                  <Icon size={tech.size ?? 40} color={tech.color} />
+                  <span className="font-mono text-sm uppercase tracking-[0.2em]" style={{ color: "var(--text-soft)" }}>
+                    {tech.name}
+                  </span>
+                </div>
+              );
+            })}
+          </motion.div>
+        </div>
+
       </div>
     </section>
   );

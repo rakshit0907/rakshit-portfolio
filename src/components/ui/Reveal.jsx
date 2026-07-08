@@ -13,52 +13,35 @@ export default function Reveal({
   const ref = useRef(null);
 
   useEffect(() => {
-    let from = {
-      opacity: 0,
-    };
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    switch (direction) {
-      case "left":
-        from.x = -distance;
-        break;
+    const ctx = gsap.context(() => {
+      if (reduceMotion) {
+        gsap.set(ref.current, { opacity: 1, x: 0, y: 0 });
+        return;
+      }
 
-      case "right":
-        from.x = distance;
-        break;
+      const from = { opacity: 0 };
+      switch (direction) {
+        case "left": from.x = -distance; break;
+        case "right": from.x = distance; break;
+        case "down": from.y = -distance; break;
+        default: from.y = distance;
+      }
 
-      case "down":
-        from.y = -distance;
-        break;
-
-      default:
-        from.y = distance;
-    }
-
-    gsap.fromTo(
-      ref.current,
-      from,
-      {
+      gsap.fromTo(ref.current, from, {
         opacity: 1,
         x: 0,
         y: 0,
         duration,
         delay,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: ref.current,
-          start,
-          once,
-        },
-      }
-    );
+        scrollTrigger: { trigger: ref.current, start, once },
+      });
+    });
+
+    return () => ctx.revert();
   }, [direction, distance, duration, delay, start, once]);
 
-  return (
-    <div
-      ref={ref}
-      className="will-change-transform"
-    >
-      {children}
-    </div>
-  );
+  return <div ref={ref} className="will-change-transform">{children}</div>;
 }
