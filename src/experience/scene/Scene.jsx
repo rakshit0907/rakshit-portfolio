@@ -32,6 +32,8 @@ import TechCloud from "../atmosphere/TechCloud";
 import BackgroundParticles from "../atmosphere/BackgroundParticles";
 import VignettePlane from "../atmosphere/VignettePlane";
 import FloatingIcons from "../atmosphere/FloatingIcons";
+import Artifact from "../core/Artifact/Artifact";
+import Instrument from "../core/Instrument";
 export default function Scene() {
   const scrollProgress = useScrollProgress();
   const activeSection = useActiveSection();
@@ -52,6 +54,9 @@ export default function Scene() {
           scrollProgress={scrollProgress}
           activeSection={activeSection}
       >
+      <Artifact />
+      <Core />
+      <Instrument />
        <> 
        <HexField />
        <BlueprintAxes />
