@@ -1,5 +1,5 @@
 import { Float } from "@react-three/drei";
-
+import DataPulse from "./DataPulse";
 import FloatingPlanes from "./Architecture/FloatingPanels";
 import FloatingFrames from "./Architecture/HolographicFrames";
 import FloorGrid from "./Architecture/ArchitectureGrid";
@@ -17,6 +17,10 @@ export default function Core() {
       floatIntensity={0.15}
     >
       <group>
+        <DataPulse position={[0, 0.95, 0]} />
+        <DataPulse position={[1.15, 0.15, 0]} />
+        <DataPulse position={[-1.1, -0.3, 0]} />
+        <DataPulse position={[0.4, -1.05, 0]} />
 
         <FloorGrid />
 

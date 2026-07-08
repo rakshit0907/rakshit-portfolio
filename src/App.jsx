@@ -4,7 +4,9 @@ import Loader from "./components/common/Loader";
 import AppRoutes from "./routes/AppRoutes";
 import Experience from "./experience/Experience";
 import useLenis from "./hooks/useLenis";
-
+import PageGlow from "./components/common/PageGlow";
+import NoiseOverlay from "./components/common/NoiseOverlay";
+import GridOverlay from "./components/common/GridOverlay";
 export default function App() {
   useLenis();
 
@@ -30,6 +32,9 @@ export default function App() {
         </div>
         
       )}
+      <PageGlow />
+      <GridOverlay />
+      <NoiseOverlay />
       <CustomCursor />
     </>
   );

@@ -27,8 +27,14 @@ import FloatingTechIcons from "../core/Architecture/FloatingTechIcons";
 import GPUParticles from "../core/Architecture/GPUParticles";
 import ScanSweep from "../core/Architecture/ScanSweep";
 import DataPillars from "../core/Architecture/DataPillars";
+import useActiveSection from "../../hooks/useActiveSection";
+import TechCloud from "../atmosphere/TechCloud";
+import BackgroundParticles from "../atmosphere/BackgroundParticles";
+import VignettePlane from "../atmosphere/VignettePlane";
+import FloatingIcons from "../atmosphere/FloatingIcons";
 export default function Scene() {
   const scrollProgress = useScrollProgress();
+  const activeSection = useActiveSection();
 
   return (
     <>
@@ -37,9 +43,15 @@ export default function Scene() {
       <Lights />
       <Background />
       <GradientFog />
+      <VignettePlane />
       <FloatingGlow />
-
-      <CameraRig scrollProgress={scrollProgress}>
+      <TechCloud />
+      <BackgroundParticles />
+      <FloatingIcons />
+      <CameraRig 
+          scrollProgress={scrollProgress}
+          activeSection={activeSection}
+      >
        <> 
        <HexField />
        <BlueprintAxes />
@@ -58,7 +70,7 @@ export default function Scene() {
           <DataPillars />
           <EnergyPulse />
           <ScanRings />
-          <EnergyTails />
+          <EnergyTrails />
           <GPUParticles />
           <EnergyLines />
           <CentralCore />

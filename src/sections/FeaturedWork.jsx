@@ -13,7 +13,8 @@ export default function FeaturedWork() {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-screen px-8 py-32 bg-black/70">
+    <section id="projects"
+    className="min-h-screen px-8 py-32 bg-black/70">
       <div className="max-w-7xl mx-auto">
         <ChapterFrame index={2} label="WORK">
 

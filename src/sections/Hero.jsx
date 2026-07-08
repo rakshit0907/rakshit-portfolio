@@ -5,7 +5,7 @@ import HeroScrollIndicator from "../components/hero/HeroScrollIndicator";
 
 export default function Hero() {
   return (
-    <section
+    <section id="hero"
       className="
         hero-section
         relative

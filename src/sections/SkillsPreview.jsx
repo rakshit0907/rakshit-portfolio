@@ -4,7 +4,8 @@ import ChapterFrame from "../components/ui/ChapterFrame";
 
 export default function SkillsPreview() {
   return (
-    <section className="relative bg-black/70 text-white py-40 overflow-hidden">
+    <section id="skills" 
+    className="relative bg-black/70 text-white py-40 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 lg:px-10">
         <ChapterFrame index={3} label="STACK">
 

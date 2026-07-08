@@ -21,7 +21,7 @@ export default function Instrument() {
   });
 
   return (
-    <Float speed={0.6} rotationIntensity={0.15} floatIntensity={0.6}>
+    <Float speed={2} rotationIntensity={0.25} floatIntensity={0.3}>
       <group position={[2.4, 0.4, -1]} rotation={[0.4, 0.6, 0.1]}>
 
         {/* Outer ring — structural, matte */}

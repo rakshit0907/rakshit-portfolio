@@ -1,24 +1,29 @@
+import { Environment } from "@react-three/drei";
+
 export default function Lights() {
   return (
     <>
       <ambientLight intensity={0.35} />
 
       <directionalLight
-        position={[4, 5, 3]}
+        position={[6, 6, 4]}
         intensity={2}
+        color="#9cc8ff"
       />
 
       <pointLight
-        position={[-5, 2, 4]}
-        intensity={1}
-        color="#8B5CF6"
+        position={[-6, 4, 6]}
+        intensity={4}
+        color="#5E81AC"
       />
 
       <pointLight
-        position={[5, -3, 2]}
-        intensity={0.8}
-        color="#38BDF8"
+        position={[4, -3, 5]}
+        intensity={2}
+        color="#6F93BF"
       />
+
+      <Environment preset="city" />
     </>
   );
 }

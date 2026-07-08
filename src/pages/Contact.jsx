@@ -18,7 +18,8 @@ export default function Contact() {
         </h1>
       </div>
 
-      <section className="relative z-10 max-w-7xl mx-auto px-8 lg:px-10 py-32">
+      <section id="contact"
+      className="relative z-10 max-w-7xl mx-auto px-8 lg:px-10 py-32">
         <ChapterFrame index={1} label="CONTACT">
 
           <p className="uppercase tracking-[0.4em] text-[#5E81AC] text-xs mb-8">
