@@ -20,6 +20,7 @@ import HexField from "../core/Architecture/HexField";
 import BlueprintAxes from "../core/Architecture/BlueprintAxes";
 import EnergyPulse from "../core/Architecture/EnergyPulse";
 import MouseField from "../core/Architecture/MouseField";
+import ScrollField from "../core/Architecture/ScrollField";
 export default function Scene() {
   const scrollProgress = useScrollProgress();
 
@@ -42,6 +43,7 @@ export default function Scene() {
         <LightColumns />
         <ConstructionNodes />
         <DataStreams />
+        <ScrollField progress={scrollProgress}>
         <MouseField>
         <group position={[2.8, 0.4, 0]}>
           <EnergyPulse />
@@ -53,6 +55,7 @@ export default function Scene() {
           <FloatingPanels />
         </group>
         </MouseField>
+        </ScrollField>
        </>
       </CameraRig>
     </>
