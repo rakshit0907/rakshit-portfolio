@@ -1,12 +1,15 @@
 import CameraRig from "../camera/CameraRig";
 import Lights from "../lighting/Lights";
-
+import EnergyLines from "../core/Architecture/EnergyLines";
+import Particles from "../core/Architecture/Particles";
 import Background from "../atmosphere/Background";
 import FloatingGlow from "../atmosphere/FloatingGlow";
 import GradientFog from "../atmosphere/GradientFog";
 
-import Core from "../core/Core";
-import Instrument from "../core/Instrument";
+import CentralCore from "../core/Architecture/CentralCore";
+import OrbitRings from "../core/Architecture/OrbitRings";
+import FloatingPanels from "../core/Architecture/FloatingPanels";
+
 import useScrollProgress from "../../hooks/useScrollProgress";
 
 export default function Scene() {
@@ -15,14 +18,20 @@ export default function Scene() {
   return (
     <>
       <color attach="background" args={["#050505"]} />
+
       <Lights />
       <Background />
       <GradientFog />
       <FloatingGlow />
 
       <CameraRig scrollProgress={scrollProgress}>
-        <Core />
-        <Instrument />
+        <group position={[2.8, 0.4, 0]}>
+          <Particles/>
+          <EnergyLines />
+          <CentralCore />
+          <OrbitRings />
+          <FloatingPanels />
+        </group>
       </CameraRig>
     </>
   );
