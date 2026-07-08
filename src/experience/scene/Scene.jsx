@@ -19,6 +19,7 @@ import ScanRings from "../core/Architecture/ScanRings";
 import HexField from "../core/Architecture/HexField";
 import BlueprintAxes from "../core/Architecture/BlueprintAxes";
 import EnergyPulse from "../core/Architecture/EnergyPulse";
+import MouseField from "../core/Architecture/MouseField";
 export default function Scene() {
   const scrollProgress = useScrollProgress();
 
@@ -41,6 +42,7 @@ export default function Scene() {
         <LightColumns />
         <ConstructionNodes />
         <DataStreams />
+        <MouseField>
         <group position={[2.8, 0.4, 0]}>
           <EnergyPulse />
           <ScanRings />
@@ -50,6 +52,7 @@ export default function Scene() {
           <OrbitRings />
           <FloatingPanels />
         </group>
+        </MouseField>
        </>
       </CameraRig>
     </>
