@@ -34,6 +34,8 @@ import VignettePlane from "../atmosphere/VignettePlane";
 import FloatingIcons from "../atmosphere/FloatingIcons";
 import Artifact from "../core/Artifact/Artifact";
 import Instrument from "../core/Instrument";
+import Effects from "../postprocessing/Effects";
+import Core from "../core/Core";
 export default function Scene() {
   const scrollProgress = useScrollProgress();
   const activeSection = useActiveSection();
@@ -42,50 +44,23 @@ export default function Scene() {
     <>
       <color attach="background" args={["#050505"]} />
 
-      <Lights />
+      <Lights activeSection={activeSection} />
       <Background />
       <GradientFog />
       <VignettePlane />
       <FloatingGlow />
       <TechCloud />
       <BackgroundParticles />
-      <FloatingIcons />
+      {/*  <FloatingIcons /> */} 
       <CameraRig 
           scrollProgress={scrollProgress}
           activeSection={activeSection}
       >
-      <Artifact />
-      <Core />
-      <Instrument />
-       <> 
-       <HexField />
-       <BlueprintAxes />
-       <HolographicFrames />
-       <OrbitNodes />
-        <ArchitectureGrid />
-        <LightColumns />
-        <LightBeams />
-        <FloatingScreens />
-        <ConstructionNodes />
-        <DataStreams />
-        <ScrollField progress={scrollProgress}>
-        <MouseField>
-        <group position={[2.8, 0.4, 0]}>
-          <ScanSweep />
-          <DataPillars />
-          <EnergyPulse />
-          <ScanRings />
-          <EnergyTrails />
-          <GPUParticles />
-          <EnergyLines />
-          <CentralCore />
-          <OrbitRings />
-          <FloatingPanels />
-        </group>
-        <FloatingTechIcons />
-        </MouseField>
-        </ScrollField>
-       </>
+      <Artifact 
+          activeSection={activeSection}
+      />
+      
+       
       </CameraRig>
     </>
   );

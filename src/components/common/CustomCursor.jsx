@@ -1,30 +1,57 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+} from "framer-motion";
 
 export default function CustomCursor() {
   const reduceMotion = useReducedMotion();
+
   const [hovering, setHovering] = useState(false);
   const [visible, setVisible] = useState(false);
+
   const isTouch = useRef(false);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 500, damping: 40 });
-  const springY = useSpring(y, { stiffness: 500, damping: 40 });
+
+  const springX = useSpring(x, {
+    stiffness: 180,
+    damping: 28,
+    mass: 0.9,
+  });
+
+  const springY = useSpring(y, {
+    stiffness: 180,
+    damping: 28,
+    mass: 0.9,
+  });
 
   useEffect(() => {
-    // Bail entirely on touch devices — no real cursor to replace
-    isTouch.current = window.matchMedia("(pointer: coarse)").matches;
+    isTouch.current =
+      window.matchMedia("(pointer: coarse)").matches;
+
     if (isTouch.current || reduceMotion) return;
 
     const move = (e) => {
       x.set(e.clientX);
       y.set(e.clientY);
+
       if (!visible) setVisible(true);
     };
 
     const over = (e) => {
-      const interactive = e.target.closest("a, button, [role='button'], input, textarea");
+      const interactive = e.target.closest(
+        "a,button,[role='button'],input,textarea,.cursor-hover"
+      );
+
       setHovering(Boolean(interactive));
     };
 
@@ -35,41 +62,49 @@ export default function CustomCursor() {
       window.removeEventListener("mousemove", move);
       window.removeEventListener("mouseover", over);
     };
-  }, [x, y, visible, reduceMotion]);
+  }, [reduceMotion, visible]);
 
-  if (isTouch.current || reduceMotion || !visible) return null;
+  if (
+    isTouch.current ||
+    reduceMotion ||
+    !visible
+  )
+    return null;
 
   return (
     <>
-      {/* Dot — snaps instantly to real cursor position */}
       <motion.div
-        className="fixed top-0 left-0 z-[10000] pointer-events-none rounded-full"
+        className="fixed top-0 left-0 z-[9999] pointer-events-none rounded-full"
         style={{
-          x, y,
+          x,
+          y,
           width: 6,
           height: 6,
           marginLeft: -3,
           marginTop: -3,
-          background: "var(--text)",
+          background: "#ffffff",
         }}
       />
 
-      {/* Ring — lags slightly behind via spring, scales on hover */}
       <motion.div
-        className="fixed top-0 left-0 z-[10000] pointer-events-none rounded-full border"
+        className="fixed top-0 left-0 z-[9999] pointer-events-none rounded-full border"
         style={{
           x: springX,
           y: springY,
-          borderColor: "var(--accent)",
+          borderColor: "#6F93BF",
         }}
         animate={{
           width: hovering ? 56 : 32,
           height: hovering ? 56 : 32,
           marginLeft: hovering ? -28 : -16,
           marginTop: hovering ? -28 : -16,
-          opacity: hovering ? 0.8 : 0.4,
+          opacity: hovering ? 0.9 : 0.45,
+          rotate: hovering ? 180 : 0,
         }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
+        transition={{
+          duration: 0.35,
+          ease: [0.22, 1, 0.36, 1],
+        }}
       />
     </>
   );

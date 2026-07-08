@@ -4,24 +4,21 @@ export default function useActiveSection() {
   const [section, setSection] = useState("hero");
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
+    const update = () => {
+      const y = window.scrollY;
+      const h = window.innerHeight;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setSection(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.45,
-      }
-    );
+      if (y < h * 0.8) setSection("hero");
+      else if (y < h * 1.8) setSection("about");
+      else if (y < h * 2.8) setSection("projects");
+      else setSection("contact");
+    };
 
-    sections.forEach((s) => observer.observe(s));
+    update();
 
-    return () => observer.disconnect();
+    window.addEventListener("scroll", update);
+
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   return section;

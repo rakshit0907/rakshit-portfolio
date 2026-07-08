@@ -16,11 +16,11 @@ export default function FloatingRing() {
 
   return (
     <mesh ref={ref}>
-      <torusGeometry args={[1.25, 0.04, 64, 256]} />
+      <torusGeometry args={[1.25, 0.018, 64, 300]} />
       <meshStandardMaterial
         color="#7aa5ff"
         emissive="#6F93BF"
-        emissiveIntensity={2}
+        emissiveIntensity={4}
         metalness={1}
         roughness={0.15}
       />

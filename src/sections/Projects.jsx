@@ -4,13 +4,12 @@ import ProjectCard from "../components/projects/ProjectCard";
 import ProjectModal from "../components/projects/ProjectModal";
 import ChapterFrame from "../components/ui/ChapterFrame";
 import ProjectConstellation from "../components/projects/ProjectConstellation";
-import ProjectGlow from "../components/projects/ProjectGlow";
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
 
   return (
     <section className="relative bg-black/70 text-white py-40 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8 lg:px-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-10">
         <ChapterFrame index={1} label="PROJECTS">
 
           <p className="uppercase tracking-[0.4em] text-[#5E81AC] text-xs mb-8">Selected Work</p>
@@ -31,7 +30,6 @@ export default function Projects() {
               as a full-stack developer.
             </p>
           </div>
-          <ProjectGlow />
           <div className="mt-32 flex flex-col gap-28">
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} onOpen={setActiveProject} />
@@ -42,7 +40,9 @@ export default function Projects() {
       </div>
 
       <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
-      <ProjectConstellation />  
+      <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none">
+      <ProjectConstellation /> 
+      </div> 
     </section>
   );
 }

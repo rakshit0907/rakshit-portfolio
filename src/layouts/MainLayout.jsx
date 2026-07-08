@@ -6,7 +6,7 @@ export default function MainLayout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-black/60 text-white">
+    <div className="min-h-screen bg-transparent text-white">
       <Navbar />
       <main>
         <PageTransition key={location.pathname}>

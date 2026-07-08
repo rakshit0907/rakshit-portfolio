@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import Scene from "./scene/Scene";
-import PostProcessing from "./PostProcessing";
+import PostProcessing from "./postprocessing/PostProcessing";
 export default function Experience() {
   return (
     <Canvas
@@ -11,10 +11,14 @@ export default function Experience() {
         near: 0.1,
         far: 100,
       }}
-      dpr={[1, 2]}
       gl={{
         antialias: true,
-        alpha: true,
+        alpha: false,
+        powerPreference: "high-performance",
+        
+      }}
+      onCreated={({ gl }) => {
+      gl.setClearColor("#050505", 1);
       }}
       style={{
         position: "absolute",

@@ -41,3 +41,19 @@ html.lenis body {
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+::selection{
+    background:#6F93BF;
+    color:white;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+canvas{
+    image-rendering:auto;
+}
+
+body{
+    overscroll-behavior:none;
+}
