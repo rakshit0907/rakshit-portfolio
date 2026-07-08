@@ -10,7 +10,8 @@ import LightColumns from "../core/Architecture/LightColumns";
 import CentralCore from "../core/Architecture/CentralCore";
 import OrbitRings from "../core/Architecture/OrbitRings";
 import FloatingPanels from "../core/Architecture/FloatingPanels";
-
+import HolographicFrames from "../core/Architecture/HolographicFrames";
+import OrbitNodes from "../core/Architecture/OrbitNodes";
 import useScrollProgress from "../../hooks/useScrollProgress";
 
 export default function Scene() {
@@ -27,6 +28,8 @@ export default function Scene() {
 
       <CameraRig scrollProgress={scrollProgress}>
        <> 
+       <HolographicFrames />
+       <OrbitNodes />
         <ArchitectureGrid />
         <LightColumns />
         <group position={[2.8, 0.4, 0]}>
