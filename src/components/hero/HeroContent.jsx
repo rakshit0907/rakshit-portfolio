@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { headingXL, bodyLG } from "../../theme";
-
+import { useNavigate } from "react-router-dom";
 export default function HeroContent() {
+  const navigate = useNavigate();
   return (
     <div className="absolute inset-0 z-20 pointer-events-none">
       <div className="h-full max-w-none mx-auto px-8 md:px-12 lg:px-20 flex items-center">
@@ -112,48 +113,21 @@ export default function HeroContent() {
             "
           >
             <button
-              className="
-                group
-                text-sm
-                uppercase
-                tracking-[0.35em]
-                text-zinc-200
-                transition-all
-                duration-500
-              "
-            >
-              Explore Work
+              onClick={() => navigate("/projects")}
+              className="group text-sm uppercase tracking-[0.35em] text-zinc-200 transition-all duration-500"
+              >
+                Explore Work
+                <div className="mt-3 h-px w-0 bg-zinc-200 transition-all duration-500 group-hover:w-full" />
+              </button>
 
-              <div
-                className="
-                  mt-3
-                  h-px
-                  w-0
-                  bg-zinc-200
-                  transition-all
-                  duration-500
-                  group-hover:w-full
-                "
-              />
-            </button>
+              <span className="text-zinc-700">/</span>
 
-            <span className="text-zinc-700">
-              /
-            </span>
-
-            <button
-              className="
-                text-sm
-                uppercase
-                tracking-[0.35em]
-                text-zinc-500
-                hover:text-zinc-200
-                transition-colors
-                duration-500
-              "
-            >
-              Contact
-            </button>
+              <button
+                onClick={() => navigate("/contact")}
+                className="text-sm uppercase tracking-[0.35em] text-zinc-500 hover:text-zinc-200 transition-colors duration-500"
+                >
+                  Contact
+                </button>
           </motion.div>
 
         </div>
