@@ -2,7 +2,7 @@ import { Float, MeshTransmissionMaterial } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
-
+import AnimatedEnergyMaterial from "../../materials/EnergyMaterial";
 export default function CentralCore() {
   const group = useRef();
 
@@ -56,13 +56,7 @@ export default function CentralCore() {
 
         <mesh scale={0.42}>
           <icosahedronGeometry args={[1, 2]} />
-          <meshStandardMaterial
-            color="#8b5cf6"
-            emissive="#7c3aed"
-            emissiveIntensity={4}
-            metalness={1}
-            roughness={0.12}
-          />
+          <AnimatedEnergyMaterial />
         </mesh>
 
       </group>
