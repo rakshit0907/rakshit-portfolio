@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import CustomCursor from "./components/common/CustomCursor";
 import Loader from "./components/common/Loader";
 import AppRoutes from "./routes/AppRoutes";
 
@@ -20,7 +20,11 @@ export default function App() {
           }
         />
       ) : (
-        <AppRoutes />
+        <>
+          <CustomCursor />
+          <AppRoutes />
+        </>  
+        
       )}
     </>
   );

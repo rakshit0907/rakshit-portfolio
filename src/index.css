@@ -1,31 +1,25 @@
+@import "tailwindcss";
+
 :root {
   --bg: #070707;
-
   --surface: #111111;
-  --surface-light: #181818
-
+  --surface-light: #181818;
   --text: #F5F5F2;
-
   --text-soft: #A3A3A3;
-
   --text-muted: #6B7280;
-
   --accent: #5E81AC;
   --accent-hover: #6F93BF;
-
   --border: rgba(255,255,255,.08);
   --border-light: rgba(255,255,255,.12);
 }
 
-
-@import "tailwindcss";
 html, body, #root {
   width: 100%;
-  win-height: 100%;
+  min-height: 100%;
 }
 
 body {
-  backgrund: #050505;
+  background: #050505;
   color: white;
   overflow-x: hidden;
   font-family: Inter, sans-serif;
@@ -34,6 +28,7 @@ body {
 * {
   box-sizing: border-box;
 }
+
 html.lenis,
 html.lenis body {
   height: auto;
