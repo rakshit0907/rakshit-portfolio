@@ -3,7 +3,7 @@ import { Float } from "@react-three/drei";
 import FloatingPlanes from "./Architecture/FloatingPanels";
 import FloatingFrames from "./Architecture/HolographicFrames";
 import FloorGrid from "./Architecture/ArchitectureGrid";
-import ConstructionColumns from "./Architecture/LightsColumns";
+import ConstructionColumns from "./Architecture/LightColumns";
 
 import StructuralSpine from "./StructuralSpine";
 import CoreConnections from "./CoreConnections";

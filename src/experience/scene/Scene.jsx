@@ -16,6 +16,9 @@ import useScrollProgress from "../../hooks/useScrollProgress";
 import DataStreams from "../core/Architecture/DataStreams";
 import ConstructionNodes from "../core/Architecture/ConstructionNodes";
 import ScanRings from "../core/Architecture/ScanRings";
+import HexField from "../core/Architecture/HexField";
+import BlueprintAxes from "../core/Architecture/BlueprintAxes";
+import EnergyPulse from "../core/Architecture/EnergyPulse";
 export default function Scene() {
   const scrollProgress = useScrollProgress();
 
@@ -30,7 +33,8 @@ export default function Scene() {
 
       <CameraRig scrollProgress={scrollProgress}>
        <> 
-       
+       <HexField />
+       <BlueprintAxes />
        <HolographicFrames />
        <OrbitNodes />
         <ArchitectureGrid />
@@ -38,6 +42,7 @@ export default function Scene() {
         <ConstructionNodes />
         <DataStreams />
         <group position={[2.8, 0.4, 0]}>
+          <EnergyPulse />
           <ScanRings />
           <Particles/>
           <EnergyLines />
