@@ -1,7 +1,6 @@
 import CameraRig from "../camera/CameraRig";
 import Lights from "../lighting/Lights";
 import EnergyLines from "../core/Architecture/EnergyLines";
-import Particles from "../core/Architecture/Particles";
 import Background from "../atmosphere/Background";
 import FloatingGlow from "../atmosphere/FloatingGlow";
 import GradientFog from "../atmosphere/GradientFog";
@@ -21,6 +20,13 @@ import BlueprintAxes from "../core/Architecture/BlueprintAxes";
 import EnergyPulse from "../core/Architecture/EnergyPulse";
 import MouseField from "../core/Architecture/MouseField";
 import ScrollField from "../core/Architecture/ScrollField";
+import LightBeams from "../core/Architecture/LightBeams";
+import FloatingScreens from "../core/Architecture/FloatingScreens";
+import EnergyTrails from "../core/Architecture/EnergyTrails";
+import FloatingTechIcons from "../core/Architecture/FloatingTechIcons";
+import GPUParticles from "../core/Architecture/GPUParticles";
+import ScanSweep from "../core/Architecture/ScanSweep";
+import DataPillars from "../core/Architecture/DataPillars";
 export default function Scene() {
   const scrollProgress = useScrollProgress();
 
@@ -41,19 +47,25 @@ export default function Scene() {
        <OrbitNodes />
         <ArchitectureGrid />
         <LightColumns />
+        <LightBeams />
+        <FloatingScreens />
         <ConstructionNodes />
         <DataStreams />
         <ScrollField progress={scrollProgress}>
         <MouseField>
         <group position={[2.8, 0.4, 0]}>
+          <ScanSweep />
+          <DataPillars />
           <EnergyPulse />
           <ScanRings />
-          <Particles/>
+          <EnergyTails />
+          <GPUParticles />
           <EnergyLines />
           <CentralCore />
           <OrbitRings />
           <FloatingPanels />
         </group>
+        <FloatingTechIcons />
         </MouseField>
         </ScrollField>
        </>

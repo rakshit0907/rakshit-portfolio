@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
-import { ScrollTrigger } from "../utils/gsap";
 
 export default function useScrollProgress() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const trigger = ScrollTrigger.create({
-      trigger: document.body,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-      onUpdate: (self) => setProgress(self.progress),
-    });
+    const update = () => {
+      const max =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
 
-    return () => trigger.kill();
+      setProgress(max <= 0 ? 0 : window.scrollY / max);
+    };
+
+    update();
+
+    window.addEventListener("scroll", update);
+
+    return () =>
+      window.removeEventListener("scroll", update);
   }, []);
 
   return progress;

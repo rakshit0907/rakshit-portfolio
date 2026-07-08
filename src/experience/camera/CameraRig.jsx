@@ -1,29 +1,46 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
+import * as THREE from "three";
 
-export default function CameraRig({ children, scrollProgress = 0 }) {
+export default function CameraRig({
+  children,
+  scrollProgress,
+}) {
   const group = useRef();
 
   useFrame((state) => {
     if (!group.current) return;
+
     const t = state.clock.elapsedTime;
 
-    // Ambient idle drift — always present, subtle
-    const idleY = Math.sin(t * 0.12) * 0.06;
-    const idleX = Math.sin(t * 0.08) * 0.02;
-    const idleFloat = Math.sin(t * 0.18) * 0.08;
+    group.current.rotation.y = THREE.MathUtils.lerp(
+      group.current.rotation.y,
+      t * 0.08 + scrollProgress * 0.8,
+      0.04
+    );
 
-    // Scroll-driven — the structure turns and pulls back as you move through the page
-    const scrollRotY = scrollProgress * Math.PI * 0.5;   // quarter turn across the whole site
-    const scrollZ = scrollProgress * 4;                  // dolly back
-    const scrollX = Math.sin(scrollProgress * Math.PI) * 0.3;
+    group.current.rotation.x = THREE.MathUtils.lerp(
+      group.current.rotation.x,
+      Math.sin(t * 0.4) * 0.08,
+      0.04
+    );
 
-    group.current.rotation.y = idleY + scrollRotY;
-    group.current.rotation.x = idleX;
-    group.current.position.y = idleFloat;
-    group.current.position.z = scrollZ;
-    group.current.position.x = scrollX;
+    group.current.position.y = THREE.MathUtils.lerp(
+      group.current.position.y,
+      Math.sin(t * 0.7) * 0.18,
+      0.04
+    );
+
+    group.current.position.z = THREE.MathUtils.lerp(
+      group.current.position.z,
+      Math.sin(t * 0.5) * 0.25,
+      0.04
+    );
   });
 
-  return <group ref={group}>{children}</group>;
+  return (
+    <group ref={group}>
+      {children}
+    </group>
+  );
 }
