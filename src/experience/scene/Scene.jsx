@@ -13,7 +13,9 @@ import FloatingPanels from "../core/Architecture/FloatingPanels";
 import HolographicFrames from "../core/Architecture/HolographicFrames";
 import OrbitNodes from "../core/Architecture/OrbitNodes";
 import useScrollProgress from "../../hooks/useScrollProgress";
-
+import DataStreams from "../core/Architecture/DataStreams";
+import ConstructionNodes from "../core/Architecture/ConstructionNodes";
+import ScanRings from "../core/Architecture/ScanRings";
 export default function Scene() {
   const scrollProgress = useScrollProgress();
 
@@ -28,11 +30,15 @@ export default function Scene() {
 
       <CameraRig scrollProgress={scrollProgress}>
        <> 
+       
        <HolographicFrames />
        <OrbitNodes />
         <ArchitectureGrid />
         <LightColumns />
+        <ConstructionNodes />
+        <DataStreams />
         <group position={[2.8, 0.4, 0]}>
+          <ScanRings />
           <Particles/>
           <EnergyLines />
           <CentralCore />
