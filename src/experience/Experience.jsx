@@ -15,7 +15,6 @@ export default function Experience() {
         antialias: true,
         alpha: false,
         powerPreference: "high-performance",
-        
       }}
       onCreated={({ gl }) => {
       gl.setClearColor("#050505", 1);
@@ -26,7 +25,7 @@ export default function Experience() {
       }}
     >
       <Scene />
-      <PostProcessing />
+    <PostProcessing /> 
     </Canvas>
   );
 }

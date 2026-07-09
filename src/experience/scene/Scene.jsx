@@ -59,8 +59,15 @@ export default function Scene() {
       <Artifact 
           activeSection={activeSection}
       />
-      
-       
+      <Core />
+      <Instrument />
+
+      {/* TEMP SANITY CHECK — bright green, zero lighting dependency */}
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.6, 32, 32]} />
+        <meshBasicMaterial color="lime" />
+      </mesh>
+
       </CameraRig>
     </>
   );

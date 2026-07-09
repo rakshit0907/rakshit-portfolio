@@ -14,7 +14,7 @@ export default function About() {
   useAboutParallax();
 
   return (
-    <section className="relative bg-black text-white overflow-hidden">
+    <section className="relative bg-transparent text-white overflow-hidden">
       <AboutBackground />
 
       <AboutHero />

@@ -1,25 +1,13 @@
-import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
+const routeToSection = {
+  "/": "hero",
+  "/about": "about",
+  "/projects": "projects",
+  "/contact": "contact",
+};
 
 export default function useActiveSection() {
-  const [section, setSection] = useState("hero");
-
-  useEffect(() => {
-    const update = () => {
-      const y = window.scrollY;
-      const h = window.innerHeight;
-
-      if (y < h * 0.8) setSection("hero");
-      else if (y < h * 1.8) setSection("about");
-      else if (y < h * 2.8) setSection("projects");
-      else setSection("contact");
-    };
-
-    update();
-
-    window.addEventListener("scroll", update);
-
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-
-  return section;
+  const { pathname } = useLocation();
+  return routeToSection[pathname] ?? "hero";
 }
