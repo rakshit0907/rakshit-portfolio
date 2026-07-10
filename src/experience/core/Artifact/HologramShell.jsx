@@ -18,10 +18,10 @@ export default function HologramShell() {
 
   return (
     <mesh ref={ref}>
-      <icosahedronGeometry args={[1.8, 2]} />
+      <icosahedronGeometry args={[1.78, 2]} />
       <meshBasicMaterial
         wireframe
-        color="#8EC8FF"
+        color="#7f98b5"
         transparent
         opacity={0.12}
       />
