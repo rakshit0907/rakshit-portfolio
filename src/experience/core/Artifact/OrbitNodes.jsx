@@ -21,7 +21,7 @@ export default function OrbitNodes() {
             <meshStandardMaterial
               color="#9CC8FF"
               emissive="#6F93BF"
-              emissiveIntensity={6}
+              emissiveIntensity={2}
             />
           </mesh>
         </Float>

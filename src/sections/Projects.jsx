@@ -5,6 +5,7 @@ import ProjectModal from "../components/projects/ProjectModal";
 import ChapterFrame from "../components/ui/ChapterFrame";
 import ProjectConstellation from "../components/projects/ProjectConstellation";
 import ProjectGlow from "./ProjectGlow";
+import ProjectTechCloud from "../components/projects/ProjectTechCloud";
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
 
@@ -44,6 +45,7 @@ export default function Projects() {
       <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none">
         <ProjectGlow />
       <ProjectConstellation /> 
+      <ProjectTechCloud />
       </div> 
     </section>
   );

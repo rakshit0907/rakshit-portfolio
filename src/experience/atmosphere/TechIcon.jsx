@@ -9,7 +9,8 @@ export default function TechIcon({
     <Billboard position={position}>
       <Text
         fontSize={size}
-        color="#6F93BF"
+        color="#8fb8ff"
+        fillOpacity={0.35}
         anchorX="center"
         anchorY="middle"
       >

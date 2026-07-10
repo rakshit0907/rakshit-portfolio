@@ -37,7 +37,7 @@ export default function ArtifactGroup({ children, activeSection = "hero", }) {
     scale: 0.72,
   },
 };
- useFrame((state) => {
+/* useFrame((state) => {
   if (!ref.current) return;
 
   const t = state.clock.elapsedTime;
@@ -88,5 +88,15 @@ export default function ArtifactGroup({ children, activeSection = "hero", }) {
 
   ref.current.scale.set(scale, scale, scale);
 });
-  return <group ref={ref}>{children}</group>;
+*/
+  return (
+  <group
+    ref={ref}
+    position={[4, 0, 0]}
+    rotation={[0, 0, 0]}
+    scale={1}
+  >
+    {children}
+  </group>
+);
 }
