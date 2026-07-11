@@ -1,12 +1,12 @@
 import { Points, PointMaterial } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
-import * as THREE from "three";
+import { useRef } from "react";
 
 export default function GPUParticles() {
   const ref = useRef();
+  const positions = useRef(null);
 
-  const positions = useMemo(() => {
+  if (!positions.current) {
     const arr = new Float32Array(2500 * 3);
 
     for (let i = 0; i < 2500; i++) {
@@ -19,8 +19,8 @@ export default function GPUParticles() {
       arr[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
     }
 
-    return arr;
-  }, []);
+    positions.current = arr;
+  }
 
   useFrame((state) => {
     if (!ref.current) return;
@@ -33,7 +33,7 @@ export default function GPUParticles() {
   return (
     <Points
       ref={ref}
-      positions={positions}
+      positions={positions.current}
       stride={3}
     >
       <PointMaterial

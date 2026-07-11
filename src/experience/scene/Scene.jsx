@@ -1,16 +1,14 @@
 import Lights from "../lighting/Lights";
-import CentralCore from "../core/Architecture/CentralCore";
-import OrbitRings from "../core/Architecture/OrbitRings";
-import EnergyLines from "../core/Architecture/EnergyLines";
-import FloatingPanels from "../core/Architecture/FloatingPanels";
+
 import Background from "../atmosphere/Background";
 import GradientFog from "../atmosphere/GradientFog";
 import FloatingGlow from "../atmosphere/FloatingGlow";
 import BackgroundParticles from "../atmosphere/BackgroundParticles";
 import VignettePlane from "../atmosphere/VignettePlane";
 
-import Artifact from "../core/Artifact/Artifact";
+import ProjectTechCloud from "../../components/projects/ProjectTechCloud";
 
+import Artifact from "../core/Artifact/Artifact";
 import BlueprintAxes from "../core/Architecture/BlueprintAxes";
 import HolographicFrames from "../core/Architecture/HolographicFrames";
 import LightBeams from "../core/Architecture/LightBeams";
@@ -18,11 +16,17 @@ import LightBeams from "../core/Architecture/LightBeams";
 import Effects from "../postprocessing/Effects";
 
 export default function Scene() {
+  // Temporary until section tracking is re-added
+  const activeSection = "hero";
+
   return (
     <>
       <color attach="background" args={["#050505"]} />
 
+      {/* Lighting */}
       <Lights />
+
+      {/* Atmosphere */}
       <Background />
       <GradientFog />
       <FloatingGlow />
@@ -33,16 +37,24 @@ export default function Scene() {
       <BlueprintAxes />
       <HolographicFrames />
       <LightBeams />
-     {/* <CentralCore />
+
+      {/*
+      <CentralCore />
       <OrbitRings />
       <EnergyLines />
-      <FloatingPanels /> */}
+      <FloatingPanels />
+      */}
 
       {/* Centerpiece */}
       <group position={[0, 0, 0]}>
-        <Artifact activeSection="hero" />
+        <Artifact activeSection={activeSection} />
+
+        {activeSection === "projects" && (
+          <ProjectTechCloud />
+        )}
       </group>
 
+      {/* Post Processing */}
       <Effects />
     </>
   );

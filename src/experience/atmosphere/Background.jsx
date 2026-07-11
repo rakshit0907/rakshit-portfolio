@@ -1,22 +1,28 @@
 import { Float, Sphere } from "@react-three/drei";
+import { useRef } from "react";
 
 export default function Background() {
-  const particles = Array.from({ length: 140 }, (_, i) => ({
-    position: [
-      (Math.random() - 0.5) * 30,
-      (Math.random() - 0.5) * 20,
-      -Math.random() * 18,
-    ],
-    scale: Math.random() * 0.08 + 0.02,
-    key: i,
-  }));
+  const particles = useRef(null);
+
+  if (!particles.current) {
+    particles.current = Array.from({ length: 140 }, (_, i) => ({
+      key: i,
+      position: [
+        (Math.random() - 0.5) * 30,
+        (Math.random() - 0.5) * 20,
+        -Math.random() * 18,
+      ],
+      scale: Math.random() * 0.08 + 0.02,
+      speed: 0.5 + Math.random(),
+    }));
+  }
 
   return (
     <>
-      {particles.map((particle) => (
+      {particles.current.map((particle) => (
         <Float
           key={particle.key}
-          speed={0.5 + Math.random()}
+          speed={particle.speed}
           rotationIntensity={0.3}
           floatIntensity={0.4}
         >
