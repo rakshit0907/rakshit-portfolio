@@ -64,12 +64,10 @@ export default function CustomCursor() {
     };
   }, [reduceMotion, visible]);
 
-  if (
-    isTouch.current ||
-    reduceMotion ||
-    !visible
-  )
-    return null;
+  const shouldHide = 
+      reduceMotion ||
+      !visible;
+    if (shouldHide) return null;  
 
   return (
     <>

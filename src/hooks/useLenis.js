@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
-import { ScrollTrigger } from "../utils/gsap";
+
 
 export default function useLenis() {
   useEffect(() => {
@@ -8,7 +8,6 @@ export default function useLenis() {
     if (reduceMotion) return;
 
     const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
-    lenis.on("scroll", ScrollTrigger.update);
 
     let rafId;
     function raf(time) {

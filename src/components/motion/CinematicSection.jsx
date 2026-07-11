@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
+import { gsap, ScrollTrigger } from "../../utils/gsap";
 import { gsap } from "../../utils/gsap";
 
 export default function CinematicSection({
