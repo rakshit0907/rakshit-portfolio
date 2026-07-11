@@ -3,9 +3,7 @@ import { projects } from "../data/projects";
 import ProjectCard from "../components/projects/ProjectCard";
 import ProjectModal from "../components/projects/ProjectModal";
 import ChapterFrame from "../components/ui/ChapterFrame";
-import ProjectConstellation from "../components/projects/ProjectConstellation";
 import ProjectGlow from "./ProjectGlow";
-import ProjectTechCloud from "../components/projects/ProjectTechCloud";
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
 
@@ -32,7 +30,7 @@ export default function Projects() {
               as a full-stack developer.
             </p>
           </div>
-          <div className="mt-32 flex flex-col gap-28">
+          <div className="mt-40 flex flex-col gap-44">
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} onOpen={setActiveProject} />
             ))}
@@ -44,8 +42,6 @@ export default function Projects() {
       <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
       <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none">
         <ProjectGlow />
-      <ProjectConstellation /> 
-      <ProjectTechCloud />
       </div> 
     </section>
   );

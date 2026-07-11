@@ -1,4 +1,4 @@
-import useAboutExperience from "../../hooks/useAboutExperience";
+
 import { headingXL } from "../../theme";
 import Reveal from "../ui/Reveal";
 import ChapterFrame from "../ui/ChapterFrame";

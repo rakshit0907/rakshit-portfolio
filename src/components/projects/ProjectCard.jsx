@@ -1,80 +1,140 @@
 import { motion } from "framer-motion";
 
-export default function ProjectCard({ project, onOpen }) {
+export default function ProjectCard({ project }) {
   return (
-    <motion.article
+    <motion.section
+      className="min-h-screen flex items-center py-24"
       initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
-      onClick={() => onOpen?.(project)}
-      className="group relative border-t border-zinc-800 pt-14 cursor-pointer"
     >
-      <div className="grid lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl mx-auto w-full px-8">
 
-        {/* Left */}
-        <div className="lg:col-span-5">
-          <span className="text-zinc-600 text-lg font-semibold">
+        {/* Image */}
+
+        <div className="relative h-[420px] lg:h-[460px] rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A]">
+
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#101820] via-[#0A0A0A] to-[#050505]" />
+
+              <div
+                className="absolute inset-0 opacity-[0.04]"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px)
+                  `,
+                  backgroundSize: "50px 50px",
+                }}
+              />
+
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+
+                <span className="text-xs tracking-[0.45em] uppercase text-[#6F93BF]">
+                  Project Preview
+                </span>
+
+                <div className="w-24 h-px bg-[#6F93BF]/40 my-6" />
+
+                <h3 className="text-4xl font-bold text-white/20 tracking-tight">
+                  {project.title}
+                </h3>
+
+              </div>
+            </>
+          )}
+
+        </div>
+
+        {/* Content */}
+
+        <div className="mt-12">
+
+          {/* Huge Number */}
+
+          <h1 className="text-[60px] lg:text-[80px] leading-none font-black text-white/5">
             {project.id}
-          </span>
+          </h1>
 
-          <h3 className="mt-5 text-5xl lg:text-6xl font-black tracking-[-0.05em] leading-none transition-colors duration-500 group-hover:text-[#6F93BF]">
-            {project.title}
-          </h3>
+          {/* Subtitle */}
 
-          <p className="mt-4 text-[#5E81AC] uppercase tracking-[0.25em] text-sm">
+          <p className="uppercase tracking-[0.28em] text-[#6F93BF] text-sm mt-4">
             {project.subtitle}
           </p>
 
-          <p className="mt-10 text-zinc-400 leading-8">
+          {/* Title */}
+
+          <h2 className="text-4xl lg:text-5xl font-black tracking-tight mt-4">
+            {project.title}
+          </h2>
+
+          {/* Description */}
+
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-white/65">
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-3 mt-10">
-            {project.tech.map((tech) => (
-              <span key={tech} className="px-4 py-2 rounded-full border border-zinc-700 text-sm text-zinc-300">
-                {tech}
+          {/* Tech */}
+
+          <div className="flex flex-wrap gap-3 mt-12">
+
+            {project.tech.map((item) => (
+              <span
+                key={item}
+                className="
+                  border
+                  border-white/10
+                  px-4
+                  py-2
+                  text-xs
+                  uppercase
+                  tracking-[0.18em]
+                  text-white/70
+                "
+              >
+                {item}
               </span>
             ))}
+
           </div>
 
-          <div className="flex items-center justify-between mt-12">
-            <span
-              className={`text-sm uppercase tracking-[0.25em] ${
-                project.status === "Completed" ? "text-zinc-200" : "text-[#6F93BF]"
-              }`}
-            >
-              {project.status}
-            </span>
+          {/* Buttons */}
 
-            <button
-              onClick={(e) => { e.stopPropagation(); onOpen?.(project); }}
-              aria-label={`View ${project.title}`}
-              className="text-white text-lg p-2 group-hover:translate-x-2 transition-transform duration-300"
-            >
-              →
+          <div className="flex gap-12 mt-10">
+
+            <button className="group text-white text-sm uppercase tracking-[0.2em]">
+
+              GitHub
+
+              <span className="ml-2 transition-transform duration-300 inline-block group-hover:translate-x-2">
+                →
+              </span>
+
             </button>
-          </div>
-        </div>
 
-        {/* Right */}
-        <div className="lg:col-span-7">
-          <div className="relative aspect-[16/10] rounded-3xl overflow-hidden border border-zinc-800 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black">
-            {project.image ? (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-zinc-600 text-2xl font-bold">
-                Coming Soon
-              </div>
-            )}
+            <button className="group text-[#6F93BF] text-sm uppercase tracking-[0.2em]">
+
+              Live Demo
+
+              <span className="ml-2 transition-transform duration-300 inline-block group-hover:translate-x-2">
+                →
+              </span>
+
+            </button>
+
           </div>
+
         </div>
 
       </div>
-    </motion.article>
+    </motion.section>
   );
 }
