@@ -11,23 +11,6 @@ export default function HeroContent() {
 
           {/* Label */}
 
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.25,
-            }}
-            className="
-              uppercase
-              tracking-[0.55em]
-              text-[11px]
-              text-zinc-500
-              mb-8
-            "
-          >
-            ENGINEER • DESIGNER • BUILDER
-          </motion.p>
 
           {/* Name */}
 
@@ -98,38 +81,35 @@ export default function HeroContent() {
           {/* Bottom Row */}
 
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 1.2,
-            }}
-            className="
-              mt-16
-              flex
-              items-center
-              gap-12
-              pointer-events-auto
-            "
-          >
-            <button
-              onClick={() => navigate("/projects")}
-              className="group text-sm uppercase tracking-[0.35em] text-zinc-200 transition-all duration-500"
-              >
-                Explore Work
-                <div className="mt-3 h-px w-0 bg-zinc-200 transition-all duration-500 group-hover:w-full" />
-              </button>
+  initial={{ opacity: 0, y: 25 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 1,
+    delay: 1.2,
+  }}
+  className="
+    mt-14
+    flex
+    items-center
+    gap-10
+    pointer-events-auto
+  "
+>
+  <button
+    onClick={() => navigate("/projects")}
+    className="group text-sm uppercase tracking-[0.35em] text-zinc-200 transition-all duration-500"
+  >
+    Explore Work
+    <div className="mt-3 h-px w-0 bg-zinc-200 transition-all duration-500 group-hover:w-full" />
+  </button>
 
-              <span className="text-zinc-700">/</span>
-
-              <button
-                onClick={() => navigate("/contact")}
-                className="text-sm uppercase tracking-[0.35em] text-zinc-500 hover:text-zinc-200 transition-colors duration-500"
-                >
-                  Contact
-                </button>
-          </motion.div>
-
+  <button
+    onClick={() => navigate("/contact")}
+    className="text-sm uppercase tracking-[0.35em] text-zinc-500 hover:text-zinc-200 transition-colors duration-500"
+  >
+    Contact
+  </button>
+</motion.div>
         </div>
       </div>
     </div>

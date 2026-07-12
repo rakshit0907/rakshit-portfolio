@@ -4,17 +4,36 @@ export default function HeroScrollIndicator() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <motion.div /* ...unchanged... */>
-      <div className="flex flex-col items-center gap-4">
-        <span className="uppercase text-[10px] tracking-[0.45em] font-medium" style={{ color: "var(--text-muted)" }}>
-          SCROLL
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.4 }}
+      className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
+    >
+      <div className="flex flex-col items-center gap-3">
+        <span className="text-[10px] uppercase tracking-[0.45em] text-zinc-500">
+          Scroll
         </span>
-        <div className="relative w-px h-20 overflow-hidden" style={{ background: "var(--border)" }}>
+
+        <div className="relative w-px h-16 overflow-hidden bg-zinc-800">
           <motion.div
-            animate={reduceMotion ? { y: "0%" } : { y: ["-100%", "100%"] }}
-            transition={reduceMotion ? {} : { duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-8"
-            style={{ background: "var(--accent)" }}
+            animate={
+              reduceMotion
+                ? {}
+                : {
+                    y: ["-100%", "100%"],
+                  }
+            }
+            transition={
+              reduceMotion
+                ? {}
+                : {
+                    repeat: Infinity,
+                    duration: 2,
+                    ease: "linear",
+                  }
+            }
+            className="absolute w-full h-6 bg-zinc-200"
           />
         </div>
       </div>

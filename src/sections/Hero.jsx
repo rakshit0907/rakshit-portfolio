@@ -1,6 +1,5 @@
 import HeroBackground from "../components/hero/HeroBackground";
 import HeroArchitecture from "../components/hero/HeroArchitecture";
-import HeroHUD from "../components/hero/HeroHUD";
 import HeroContent from "../components/hero/HeroContent";
 import HeroScrollIndicator from "../components/hero/HeroScrollIndicator";
 
@@ -19,9 +18,6 @@ export default function Hero() {
 
       {/* Digital Architecture */}
       <HeroArchitecture />
-
-      {/* Data readouts / HUD panels */}
-      <HeroHUD />
 
       {/* Typography */}
       <HeroContent />
