@@ -4,7 +4,7 @@ import * as THREE from "three";
 
 export default function BackgroundParticles() {
   const positions = useMemo(() => {
-    const arr = new Float32Array(3500 * 3);
+    const arr = new Float32Array(900 * 3);
 
     for (let i = 0; i < arr.length; i += 3) {
       arr[i] = (Math.random() - 0.5) * 45;

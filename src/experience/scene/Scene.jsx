@@ -1,5 +1,5 @@
 import Lights from "../lighting/Lights";
-
+import ArchitecturalFrame from "../core/Architecture/ArchitecturalFrame";
 import Background from "../atmosphere/Background";
 import GradientFog from "../atmosphere/GradientFog";
 import FloatingGlow from "../atmosphere/FloatingGlow";
@@ -9,9 +9,6 @@ import VignettePlane from "../atmosphere/VignettePlane";
 import ProjectTechCloud from "../../components/projects/ProjectTechCloud";
 
 import Artifact from "../core/Artifact/Artifact";
-import BlueprintAxes from "../core/Architecture/BlueprintAxes";
-import HolographicFrames from "../core/Architecture/HolographicFrames";
-import LightBeams from "../core/Architecture/LightBeams";
 
 import Effects from "../postprocessing/Effects";
 
@@ -32,18 +29,10 @@ export default function Scene() {
       <FloatingGlow />
       <BackgroundParticles />
       <VignettePlane />
-
+      <ArchitecturalFrame />
       {/* Hero Environment */}
-      <BlueprintAxes />
-      <HolographicFrames />
-      <LightBeams />
 
-      {/*
-      <CentralCore />
-      <OrbitRings />
-      <EnergyLines />
-      <FloatingPanels />
-      */}
+
 
       {/* Centerpiece */}
       <group position={[0, 0, 0]}>
