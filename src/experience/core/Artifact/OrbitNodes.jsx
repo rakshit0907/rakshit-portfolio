@@ -1,27 +1,39 @@
 import { Float } from "@react-three/drei";
 
 export default function OrbitNodes() {
+  const nodes = Array.from({ length: 12 }, (_, i) => {
+    const angle = (i / 12) * Math.PI * 2;
+
+    return {
+      x: Math.cos(angle) * 2.15,
+      y: Math.sin(angle * 2) * 0.25,
+      z: Math.sin(angle) * 2.15,
+      scale: i % 3 === 0 ? 0.06 : 0.04,
+      speed: 1 + i * 0.08,
+    };
+  });
+
   return (
     <>
-      {Array.from({ length: 10 }).map((_, i) => (
+      {nodes.map((node, i) => (
         <Float
           key={i}
-          speed={1 + i * 0.1}
-          floatIntensity={0.5}
-          rotationIntensity={1}
+          speed={node.speed}
+          rotationIntensity={0.4}
+          floatIntensity={0.45}
         >
           <mesh
-            position={[
-              Math.cos((i / 10) * Math.PI * 2) * 2,
-              (Math.random() - 0.5) * 1.2,
-              Math.sin((i / 10) * Math.PI * 2) * 2,
-            ]}
+            position={[node.x, node.y, node.z]}
+            scale={node.scale}
           >
-            <sphereGeometry args={[0.035, 16, 16]} />
+            <sphereGeometry args={[1, 24, 24]} />
+
             <meshStandardMaterial
-              color="#9CC8FF"
-              emissive="#6F93BF"
-              emissiveIntensity={2}
+              color="#D9EEFF"
+              emissive="#8CC8FF"
+              emissiveIntensity={4}
+              roughness={0.15}
+              metalness={0.2}
             />
           </mesh>
         </Float>
