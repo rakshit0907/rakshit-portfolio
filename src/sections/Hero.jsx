@@ -1,5 +1,6 @@
 import HeroBackground from "../components/hero/HeroBackground";
 import HeroArchitecture from "../components/hero/HeroArchitecture";
+import HeroLabels from "../components/hero/HeroLabels";
 import HeroContent from "../components/hero/HeroContent";
 import HeroScrollIndicator from "../components/hero/HeroScrollIndicator";
 
@@ -13,16 +14,11 @@ export default function Hero() {
         overflow-hidden
       "
     >
-      {/* Background */}
       <HeroBackground />
-
-      {/* Digital Architecture */}
       <HeroArchitecture />
-
-      {/* Typography */}
+    
+      <HeroLabels />
       <HeroContent />
-
-      {/* Scroll Indicator */}
       <HeroScrollIndicator />
     </section>
   );
