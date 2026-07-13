@@ -1,8 +1,8 @@
 import {
   EffectComposer,
   Bloom,
-  Vignette,
   Noise,
+  Vignette,
   ChromaticAberration,
 } from "@react-three/postprocessing";
 
@@ -13,24 +13,24 @@ export default function Effects() {
     <EffectComposer>
 
       <Bloom
-        intensity={1.6}
-        luminanceThreshold={0.2}
-        luminanceSmoothing={0.8}
+        intensity={0.7}
+        luminanceThreshold={0.45}
+        luminanceSmoothing={0.95}
       />
 
       <Noise
-        opacity={0.03}
+        opacity={0.015}
         blendFunction={BlendFunction.SOFT_LIGHT}
       />
 
       <ChromaticAberration
-        offset={[0.0005, 0.0005]}
+        offset={[0.00018, 0.00018]}
       />
 
       <Vignette
         eskil={false}
-        offset={0.22}
-        darkness={0.75}
+        offset={0.25}
+        darkness={0.62}
       />
 
     </EffectComposer>

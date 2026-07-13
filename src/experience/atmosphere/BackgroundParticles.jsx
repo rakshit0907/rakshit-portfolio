@@ -1,15 +1,14 @@
 import { Points, PointMaterial } from "@react-three/drei";
 import { useMemo } from "react";
-import * as THREE from "three";
 
 export default function BackgroundParticles() {
   const positions = useMemo(() => {
-    const arr = new Float32Array(900 * 3);
+    const arr = new Float32Array(1800 * 3);
 
     for (let i = 0; i < arr.length; i += 3) {
-      arr[i] = (Math.random() - 0.5) * 45;
-      arr[i + 1] = (Math.random() - 0.5) * 30;
-      arr[i + 2] = (Math.random() - 0.5) * 30;
+      arr[i] = (Math.random() - 0.5) * 55;
+      arr[i + 1] = (Math.random() - 0.5) * 34;
+      arr[i + 2] = (Math.random() - 0.5) * 40;
     }
 
     return arr;
@@ -19,11 +18,10 @@ export default function BackgroundParticles() {
     <Points positions={positions} stride={3}>
       <PointMaterial
         transparent
-        size={0.04}
-        color="#7aa7ff"
-        opacity={0.25}
+        size={0.015}
+        color="#7ea4dc"
+        opacity={0.11}
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
       />
     </Points>
   );
