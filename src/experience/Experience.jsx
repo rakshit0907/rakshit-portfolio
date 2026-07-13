@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import Scene from "./scene/Scene";
-import PostProcessing from "./postprocessing/PostProcessing";
 export default function Experience() {
   return (
     <Canvas
@@ -25,7 +24,6 @@ export default function Experience() {
       }}
     >
       <Scene />
-    <PostProcessing /> 
     </Canvas>
   );
 }

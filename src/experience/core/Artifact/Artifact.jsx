@@ -1,5 +1,5 @@
 import { MeshTransmissionMaterial } from "@react-three/drei";
-
+import MechanicalCage from "./MechanicalCage";
 import ArtifactGroup from "./ArtifactGroup";
 import HologramShell from "./HologramShell";
 import OrbitNodes from "./OrbitNodes";
@@ -48,6 +48,7 @@ export default function Artifact() {
 
       {/* Engineering Layers */}
       <MechanicalRings />
+      <MechanicalCage />
       <HologramShell />
 
       <OrbitNodes />
