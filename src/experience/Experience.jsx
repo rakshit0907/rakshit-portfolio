@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import Scene from "./scene/Scene";
+import BackgroundParticles from "./background/BackgroundParticles";  
 export default function Experience() {
   return (
     <Canvas
@@ -23,6 +24,7 @@ export default function Experience() {
         inset: 0,
       }}
     >
+      <BackgroundParticles />
       <Scene />
     </Canvas>
   );

@@ -13,16 +13,25 @@ export default function Lights({
   const c = configs[activeSection];
   return (
     <>
-      <ambientLight intensity={c.ambient} />
-      <directionalLight position={[5, 6, 5]} intensity={c.key} color="#fff2e0" />
-      <directionalLight position={[-5, 2, -6]} intensity={2} color="#cfd6dd" />
-      <pointLight position={[0, -3, 4]} intensity={c.fill} color="#e8e4dd" />
+      <ambientLight intensity={0.55} />
 
-      <Environment resolution={64} background={false}>
-        <Lightformer form="rect" intensity={3} color="#fff2e0" position={[0, 5, 5]} scale={[10, 10, 1]} />
-        <Lightformer form="rect" intensity={1.5} color="#cfd6dd" position={[-5, -3, 4]} scale={[8, 8, 1]} rotation={[0, 0, Math.PI / 4]} />
-        <Lightformer form="ring" intensity={1.2} color="#ffffff" position={[0, 0, -6]} scale={6} />
-      </Environment>
+<directionalLight
+    position={[5,6,5]}
+    intensity={2}
+/>
+
+<pointLight
+    position={[2,1,3]}
+    intensity={18}
+    distance={10}
+    color="#ffe7b3"
+/>
+
+<pointLight
+    position={[-3,-1,-2]}
+    intensity={6}
+    color="#7aa8ff"
+/>
     </>
   );
 }

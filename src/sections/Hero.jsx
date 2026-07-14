@@ -17,7 +17,6 @@ export default function Hero() {
       <HeroBackground />
       <HeroArchitecture />
     
-      <HeroLabels />
       <HeroContent />
       <HeroScrollIndicator />
     </section>
