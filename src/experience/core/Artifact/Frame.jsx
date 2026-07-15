@@ -19,7 +19,7 @@ export default function Frame() {
       <mesh position={[0, 0, 0.22]}>
         <torusGeometry args={[0.92, 0.028, 32, 220]} />
         <meshStandardMaterial
-          color="#8e8e8e"
+          color="#8a8a8a"
           metalness={1}
           roughness={0.12}
         />
@@ -30,7 +30,7 @@ export default function Frame() {
       <mesh position={[0, 0, -0.22]}>
         <torusGeometry args={[0.92, 0.028, 32, 220]} />
         <meshStandardMaterial
-          color="#3c3c3c"
+          color="#2b2b2b"
           metalness={1}
           roughness={0.22}
         />
@@ -41,7 +41,7 @@ export default function Frame() {
       <mesh>
         <boxGeometry args={[0.05, 1.7, 0.05]} />
         <meshStandardMaterial
-          color="#5a5a5a"
+          color="#111111"
           metalness={1}
           roughness={0.18}
         />
@@ -52,7 +52,7 @@ export default function Frame() {
       <mesh rotation={[0, 0, Math.PI / 2]}>
         <boxGeometry args={[0.05, 1.7, 0.05]} />
         <meshStandardMaterial
-          color="#444"
+          color="#111111"
           metalness={1}
           roughness={0.18}
         />

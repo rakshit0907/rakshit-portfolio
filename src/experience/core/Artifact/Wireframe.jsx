@@ -61,10 +61,10 @@ export default function Wireframe({ cageRef }) {
         <Line
           key={i}
           points={points}
-          color="#e6e6e6"
+          color="#88847d"
           transparent
-          opacity={0.05}
-          lineWidth={0.35}
+          opacity={0.12}
+          lineWidth={1}
         />
       ))}
 
@@ -72,11 +72,11 @@ export default function Wireframe({ cageRef }) {
         .filter((_, i) => i % 2 === 0)
         .map((p, i) => (
           <mesh key={i} position={p}>
-            <sphereGeometry args={[0.007, 8, 8]} />
+            <sphereGeometry args={[0.011, 8, 8]} />
             <meshBasicMaterial
-              color="#e5d4b2"
+              color="#efe0b0"
               transparent
-              opacity={0.75}
+              opacity={0.8}
             />
           </mesh>
         ))}

@@ -13,9 +13,10 @@ export default function Effects() {
     <EffectComposer>
 
       <Bloom
-        intensity={0.7}
-        luminanceThreshold={0.45}
-        luminanceSmoothing={0.95}
+        intensity={0.32}
+        luminanceThreshold={0.72}
+        luminanceSmoothing={0.85}
+        mipmapBlur
       />
 
       <Noise

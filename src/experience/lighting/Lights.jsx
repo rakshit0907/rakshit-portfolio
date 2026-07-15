@@ -13,24 +13,24 @@ export default function Lights({
   const c = configs[activeSection];
   return (
     <>
-      <ambientLight intensity={0.55} />
+      <ambientLight intensity={0.65} />
 
 <directionalLight
     position={[5,6,5]}
-    intensity={2}
+    intensity={2.5}
 />
 
 <pointLight
     position={[2,1,3]}
-    intensity={18}
+    intensity={20}
     distance={10}
     color="#ffe7b3"
 />
 
 <pointLight
     position={[-3,-1,-2]}
-    intensity={6}
-    color="#7aa8ff"
+    intensity={7}
+    color="#6fa8ff"
 />
     </>
   );
