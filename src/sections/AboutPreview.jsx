@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import ChapterFrame from "../components/ui/ChapterFrame";
-
+import profile from "../assets/images/profile.webp.jpeg";
 export default function AboutPreview() {
   const navigate = useNavigate();
 
@@ -11,7 +11,21 @@ export default function AboutPreview() {
      className="min-h-screen flex items-center px-8 py-32 bg-black/70">
       <div className="max-w-7xl mx-auto w-full">
         <ChapterFrame index={1} label="ABOUT">
+          <div className="grid lg:grid-cols-[420px_1fr] gap-20 items-center">
+          <div className="relative max-w-md mx-auto lg:mx-0">
 
+  <div className="p-3 rounded-[36px] border border-white/10">
+
+    <img
+      src={profile}
+      alt="Rakshit Pandey"
+      className="w-full h-[560px] object-cover rounded-[28px]"
+    />
+
+  </div>
+
+</div>
+          <div>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +70,8 @@ export default function AboutPreview() {
           >
             More About Me <span>→</span>
           </motion.button>
-
+          </div>
+          </div>
         </ChapterFrame>
       </div>
     </section>
