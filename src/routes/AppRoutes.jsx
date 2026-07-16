@@ -10,6 +10,8 @@ import {
 
 import MainLayout from "../layouts/MainLayout";
 
+import { lazy, Suspense } from "react";
+
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Projects from "../pages/Projects";
@@ -23,7 +25,7 @@ export default function AppRoutes() {
   return (
     <>
       <ScrollToTop />
-
+     
       <AnimatePresence mode="wait">
         <Routes
           location={location}

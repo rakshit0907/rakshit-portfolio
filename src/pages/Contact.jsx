@@ -80,7 +80,7 @@ export default function Contact() {
 
           <div className="mt-24 flex justify-between items-center font-mono text-[10px] uppercase tracking-[0.3em]" style={{ color: "var(--text-muted)" }}>
             <span>© 2026 RAKSHIT PANDEY</span>
-            <span>REACT / THREE.JS / GSAP</span>
+            <span> 😊</span>
           </div>
 
         </ChapterFrame>
