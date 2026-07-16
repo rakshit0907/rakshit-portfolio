@@ -8,7 +8,7 @@ import Experience from "./experience/Experience";
 import useLenis from "./hooks/useLenis";
 
 export default function App() {
-  //useLenis();
+  useLenis();
 
   const [loaded, setLoaded] = useState(false);
 
