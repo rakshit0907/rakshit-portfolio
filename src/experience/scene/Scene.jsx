@@ -24,13 +24,6 @@ export default function Scene() {
       <Effects />
 
       {/* Post Processing */}
-      <EffectComposer>
-        <Bloom
-          intensity={0.35}
-          luminanceThreshold={0.6}
-          mipmapBlur
-        />
-      </EffectComposer>
     </>
   );
 }

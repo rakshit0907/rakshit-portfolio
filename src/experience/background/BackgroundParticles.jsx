@@ -6,7 +6,7 @@ export default function BackgroundParticles() {
   const ref = useRef();
 
   const { positions, colors } = useMemo(() => {
-    const count = 1800;
+    const count = 1200;
 
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
@@ -71,10 +71,10 @@ export default function BackgroundParticles() {
 
       <pointsMaterial
         vertexColors
-        size={0.03}
+        size={0.022}
         sizeAttenuation
         transparent
-        opacity={0.35}
+        opacity={0.28}
         depthWrite={false}
       />
     </points>
