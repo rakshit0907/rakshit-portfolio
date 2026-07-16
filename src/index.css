@@ -25,6 +25,12 @@ body {
   font-family: Inter, sans-serif;
 }
 
+canvas {
+  display: block;
+  image-rendering: auto;
+  touch-action: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -56,4 +62,9 @@ canvas{
 
 body{
     overscroll-behavior:none;
+}
+
+.test-red {
+  color: red;
+  font-size: 100px;
 }
