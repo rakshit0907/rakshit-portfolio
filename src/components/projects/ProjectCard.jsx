@@ -19,7 +19,7 @@ export default function ProjectCard({ project }) {
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           ) : (
             <>
@@ -107,29 +107,36 @@ export default function ProjectCard({ project }) {
           </div>
 
           {/* Buttons */}
-
           <div className="flex gap-12 mt-10">
+            {project.github && (
+              <a 
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group text-white text-sm uppercase tracking-[0.2em]"
+              >
+                Github
 
-            <button className="group text-white text-sm uppercase tracking-[0.2em]">
+                <span className="ml-2 transition-transform duration-300 inline-block group-hover:translate-x-2">
+                    →
+                </span>
+              </a>  
+            )}
 
-              GitHub
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group text-[#6F93BF] text-sm uppercase tracking-[0.2em]"
+              >
+                Live Demo
 
-              <span className="ml-2 transition-transform duration-300 inline-block group-hover:translate-x-2">
-                →
-              </span>
-
-            </button>
-
-            <button className="group text-[#6F93BF] text-sm uppercase tracking-[0.2em]">
-
-              Live Demo
-
-              <span className="ml-2 transition-transform duration-300 inline-block group-hover:translate-x-2">
-                →
-              </span>
-
-            </button>
-
+                <span className="ml-2 transition-transform duration-300 inline-block group-hover:translate-x-2">
+                   →
+                </span>
+              </a>  
+            )}
           </div>
 
         </div>

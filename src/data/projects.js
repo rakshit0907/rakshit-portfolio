@@ -1,3 +1,4 @@
+import restaurantPreview from "../assets/projects/restaurant-management.png";
 export const projects = [
   {
     id: "01",
@@ -96,16 +97,20 @@ export const projects = [
     year: "2025",
 
     tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
       "Node.js",
       "Express",
       "MongoDB",
-      "JavaScript"
+      "Mongoose",
+      "JWT"
     ],
 
-    image: null,
+    image: restaurantPreview,
 
-    github: null,
+    github: "https://github.com/rakshit0907/restaurant-project",
 
-    live: null,
+    live: "https://rakshit0907.github.io/restaurant-project/index.html",
   },
 ];
