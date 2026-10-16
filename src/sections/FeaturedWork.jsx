@@ -61,7 +61,7 @@ export default function FeaturedWork() {
 }
 
 function ProjectCard({ project, onClick }) {
-  const { ref, handleMouseMove, handleMouseLeave } = useTilt();
+  const { ref, handleMouseMove, handleMouseLeave, style } = useTilt();
 
   return (
     <motion.div
@@ -69,11 +69,13 @@ function ProjectCard({ project, onClick }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
-      initial={{ opacity: 0, y: 80 }}
+      style={style}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-      className="cursor-pointer rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl hover:border-[#5E81AC]/50 transition-all duration-500"
+      whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="cursor-pointer rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md hover:border-[#5E81AC]/50 transition-colors duration-500"
     >
       <div className="aspect-video bg-gradient-to-br from-[#5E81AC]/30 to-[#6F93BF]/20 flex items-center justify-center">
         {project.image ? (

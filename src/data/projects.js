@@ -1,4 +1,4 @@
-import restaurantPreview from "../assets/projects/restaurant-management.png";
+import restaurantPreview from "../assets/projects/restaurant-management.webp";
 export const projects = [
   {
     id: "01",
