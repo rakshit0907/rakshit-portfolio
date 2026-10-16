@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 
 import MainLayout from "../layouts/MainLayout";
 import Navbar from "../components/common/Navbar";
+import ScrollProgress from "../components/common/ScrollProgress";
 import Home from "../pages/Home";
 import { scrollToTopInstant } from "../lib/lenis";
 
@@ -32,6 +33,7 @@ export default function AppRoutes() {
   return (
     <>
       <Navbar />
+      <ScrollProgress />
 
       <AnimatePresence mode="wait" onExitComplete={scrollToTopInstant}>
         <Routes location={location} key={location.pathname}>

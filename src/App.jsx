@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 
 import CustomCursor from "./components/common/CustomCursor";
 import Loader from "./components/common/Loader";
+import GridOverlay from "./components/common/GridOverlay";
 import AppRoutes from "./routes/AppRoutes";
 import useLenis from "./hooks/useLenis";
 
@@ -38,6 +39,8 @@ export default function App() {
         </div>,
         document.body
       )}
+
+      <GridOverlay />
 
       {revealed && (
         <div style={{ position: "relative", zIndex: 10 }}>
