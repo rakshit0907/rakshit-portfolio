@@ -1,7 +1,10 @@
+// Faint blueprint grid that fades out toward the edges. Matches the
+// "drafting interface" theme. Hidden on phones to save GPU.
 export default function GridOverlay() {
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-[1]"
+      aria-hidden="true"
+      className="hidden md:block fixed inset-0 pointer-events-none z-[1]"
       style={{
         backgroundImage: `
           linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
@@ -9,6 +12,8 @@ export default function GridOverlay() {
         `,
         backgroundSize: "80px 80px",
         maskImage:
+          "radial-gradient(circle at center, black 45%, transparent 100%)",
+        WebkitMaskImage:
           "radial-gradient(circle at center, black 45%, transparent 100%)",
       }}
     />

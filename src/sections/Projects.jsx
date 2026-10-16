@@ -4,6 +4,7 @@ import ProjectCard from "../components/projects/ProjectCard";
 import ProjectModal from "../components/projects/ProjectModal";
 import ChapterFrame from "../components/ui/ChapterFrame";
 import ProjectGlow from "./ProjectGlow";
+import ProjectConstellation from "../components/projects/ProjectConstellation";
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
 
@@ -42,6 +43,7 @@ export default function Projects() {
       <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
       <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none">
         <ProjectGlow />
+        <ProjectConstellation />
       </div> 
     </section>
   );
