@@ -1,55 +1,65 @@
-import {
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
-
-import {
-  AnimatePresence,
-} from "framer-motion";
+import { lazy, Suspense, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 import MainLayout from "../layouts/MainLayout";
-
-import { lazy, Suspense } from "react";
-
+import Navbar from "../components/common/Navbar";
 import Home from "../pages/Home";
-import About from "../pages/About";
-import Projects from "../pages/Projects";
-import Contact from "../pages/Contact";
+import { scrollToTopInstant } from "../lib/lenis";
 
-import ScrollToTop from "../components/common/ScrollToTop";
+const loadAbout = () => import("../pages/About");
+const loadProjects = () => import("../pages/Projects");
+const loadContact = () => import("../pages/Contact");
+
+const About = lazy(loadAbout);
+const Projects = lazy(loadProjects);
+const Contact = lazy(loadContact);
 
 export default function AppRoutes() {
   const location = useLocation();
 
+  // Warm the other routes while the browser is idle so navigation feels instant.
+  useEffect(() => {
+    const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1500));
+    const id = idle(() => {
+      loadAbout();
+      loadProjects();
+      loadContact();
+    });
+    return () => window.cancelIdleCallback?.(id);
+  }, []);
+
   return (
     <>
-      <ScrollToTop />
-     
-      <AnimatePresence mode="wait">
-        <Routes
-          location={location}
-          key={location.pathname}
-        >
-          <Route element={<MainLayout />}>
-            <Route
-              path="/"
-              element={<Home />}
-            />
+      <Navbar />
 
+      <AnimatePresence mode="wait" onExitComplete={scrollToTopInstant}>
+        <Routes location={location} key={location.pathname}>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Home />} />
             <Route
               path="/about"
-              element={<About />}
+              element={
+                <Suspense fallback={null}>
+                  <About />
+                </Suspense>
+              }
             />
-
             <Route
               path="/projects"
-              element={<Projects />}
+              element={
+                <Suspense fallback={null}>
+                  <Projects />
+                </Suspense>
+              }
             />
-
             <Route
               path="/contact"
-              element={<Contact />}
+              element={
+                <Suspense fallback={null}>
+                  <Contact />
+                </Suspense>
+              }
             />
           </Route>
         </Routes>
