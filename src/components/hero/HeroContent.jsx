@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function HeroContent() {
   const navigate = useNavigate();
   return (
-    <div className="left absolute inset-0 z-20 pointer-events-none">
+    <div className="hero-content absolute inset-0 z-20 pointer-events-none">
       <div className="h-full max-w-none mx-auto px-8 md:px-12 lg:px-20 flex items-center">
 
         <div className="w-full px-6 md:w-[29vw] ml-6 md:px-0">

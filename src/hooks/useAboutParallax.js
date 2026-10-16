@@ -1,5 +1,5 @@
 import { useLayoutEffect } from "react";
-import { gsap, ScrollTrigger } from "../utils/gsap";
+import { gsap } from "../utils/gsap";
 
 export default function useAboutParallax() {
   useLayoutEffect(() => {
