@@ -52,10 +52,6 @@ html.lenis body {
     color:white;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 canvas{
     image-rendering:auto;
 }
@@ -67,4 +63,12 @@ body{
 .test-red {
   color: red;
   font-size: 100px;
+}
+/* Respect users who ask the OS for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
