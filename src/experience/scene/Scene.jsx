@@ -5,6 +5,7 @@ import * as THREE from "three";
 import HeroObject from "../core/HeroObject";
 import Lights from "../lighting/Lights";
 import Effects from "../postprocessing/Effects";
+import CameraRig from "../camera/CameraRig";
 
 // Gives the hero object a soft, frame-rate independent response to the
 // pointer and to scrolling. Uses refs only (no React state), so there are
@@ -39,10 +40,12 @@ function SceneRig({ children }) {
   return <group ref={group}>{children}</group>;
 }
 
-export default function Scene() {
+export default function Scene({ section = "hero" }) {
   return (
     <>
       <color attach="background" args={["#050505"]} />
+
+      <CameraRig section={section} />
 
       <Lights />
 

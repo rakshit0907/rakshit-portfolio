@@ -3,11 +3,15 @@ import { Canvas } from "@react-three/fiber";
 import { PerformanceMonitor } from "@react-three/drei";
 import Scene from "./scene/Scene";
 import BackgroundParticles from "./background/BackgroundParticles";
+import useActiveSection from "../hooks/useActiveSection";
 
 export default function Experience() {
   // Starts at 1.5x. If the device can't hold its frame rate,
   // PerformanceMonitor drops to 1x automatically (and recovers if it can).
   const [maxDpr, setMaxDpr] = useState(1.5);
+
+  // Read the route here (outside <Canvas>) and pass it down as a prop.
+  const section = useActiveSection();
 
   return (
     <Canvas
@@ -38,7 +42,7 @@ export default function Experience() {
         onIncline={() => setMaxDpr(1.5)}
       />
       <BackgroundParticles />
-      <Scene />
+      <Scene section={section} />
     </Canvas>
   );
 }
