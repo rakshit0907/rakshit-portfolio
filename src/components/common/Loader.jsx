@@ -1,23 +1,33 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
-export default function Loader({ onFinish }) {
+export default function Loader({ onReveal, onFinish }) {
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    // Returning visitors in the same session get a much shorter intro.
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem("intro-seen") === "1";
+      sessionStorage.setItem("intro-seen", "1");
+    } catch {
+      /* storage unavailable (private mode) - just play the full intro */
+    }
+
     const start = performance.now();
-    const duration = reduceMotion ? 400 : 2200;
+    const duration = reduceMotion ? 300 : seen ? 600 : 1600;
+    const easeInOut = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
 
     let frame;
     const tick = (now) => {
-      const pct = Math.min(100, ((now - start) / duration) * 100);
-      setProgress(pct);
-      if (pct < 100) {
+      const t = Math.min(1, (now - start) / duration);
+      setProgress(easeInOut(t) * 100);
+      if (t < 1) {
         frame = requestAnimationFrame(tick);
       } else {
-        setTimeout(() => setDone(true), reduceMotion ? 0 : 400);
+        setDone(true);
       }
     };
     frame = requestAnimationFrame(tick);
@@ -25,11 +35,12 @@ export default function Loader({ onFinish }) {
   }, [reduceMotion]);
 
   useEffect(() => {
-    if (done) {
-      const t = setTimeout(() => onFinish?.(), reduceMotion ? 0 : 700);
-      return () => clearTimeout(t);
-    }
-  }, [done, onFinish, reduceMotion]);
+    if (!done) return;
+    // Mount the real page now, while the loader is still fading out.
+    onReveal?.();
+    const t = setTimeout(() => onFinish?.(), reduceMotion ? 0 : 650);
+    return () => clearTimeout(t);
+  }, [done, onReveal, onFinish, reduceMotion]);
 
   return (
     <AnimatePresence>
@@ -38,7 +49,7 @@ export default function Loader({ onFinish }) {
           className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden"
           style={{ background: "var(--bg)" }}
           exit={{ opacity: 0 }}
-          transition={{ duration: reduceMotion ? 0 : 0.7, ease: "easeInOut" }}
+          transition={{ duration: reduceMotion ? 0 : 0.6, ease: "easeInOut" }}
         >
           {/* Corner coordinate readouts */}
           <div className="absolute top-8 left-8 font-mono text-[10px] tracking-[0.3em]" style={{ color: "var(--text-muted)" }}>

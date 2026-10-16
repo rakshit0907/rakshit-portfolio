@@ -10,7 +10,6 @@ export default function useHeroPin() {
         end: "+=100%",
         pin: true,
         scrub: 1,
-        markers: true,
       },
     });
 

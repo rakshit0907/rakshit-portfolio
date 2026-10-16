@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
-import { gsap, ScrollTrigger } from "../../utils/gsap";
+import { useRef, useLayoutEffect } from "react";
+import { gsap } from "../../utils/gsap";
 
 export default function Reveal({
   children,
@@ -12,14 +12,13 @@ export default function Reveal({
 }) {
   const ref = useRef(null);
 
-  useEffect(() => {
+  // useLayoutEffect so the hidden start state is applied before first paint
+  // (with useEffect the content flashed visible, then vanished, then animated).
+  useLayoutEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const ctx = gsap.context(() => {
-      if (reduceMotion) {
-        gsap.set(ref.current, { opacity: 1, x: 0, y: 0 });
-        return;
-      }
+      if (reduceMotion) return;
 
       const from = { opacity: 0 };
       switch (direction) {
@@ -36,12 +35,15 @@ export default function Reveal({
         duration,
         delay,
         ease: "power3.out",
+        // Remove inline transform afterwards so the element isn't left on its
+        // own compositor layer forever (dozens of these add up on mobile).
+        clearProps: "opacity,transform",
         scrollTrigger: { trigger: ref.current, start, once },
       });
-    });
+    }, ref);
 
     return () => ctx.revert();
   }, [direction, distance, duration, delay, start, once]);
 
-  return <div ref={ref} className="will-change-transform">{children}</div>;
+  return <div ref={ref}>{children}</div>;
 }

@@ -1,30 +1,16 @@
 import { useEffect } from "react";
-import Lenis from "lenis";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { startLenis, stopLenis } from "../lib/lenis";
 
 export default function useLenis() {
   useEffect(() => {
-    const lenis = new Lenis({
-      smoothWheel: true,
-      duration: 1.2,
-    });
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-    lenis.on("scroll", ScrollTrigger.update);
+    // People who ask for reduced motion get native scrolling.
+    if (reduceMotion) return;
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
-
-    return () => {
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
-      lenis.destroy();
-    };
+    startLenis();
+    return stopLenis;
   }, []);
 }

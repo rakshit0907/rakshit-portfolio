@@ -1,8 +1,9 @@
 import { useLayoutEffect } from "react";
-import { gsap, ScrollTrigger } from "../../utils/gsap";
+import { gsap, ScrollTrigger } from "../utils/gsap";
 
 export default function useTransitionScene() {
   useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".transition-scene",
@@ -49,5 +50,7 @@ export default function useTransitionScene() {
         },
         "-=0.2"
       );
+    });
+    return () => ctx.revert();
   }, []);
 }
