@@ -9,22 +9,12 @@ export default function useAboutExperience() {
       // -------------------------
 
       const hero = document.querySelector(".about-hero");
-      const bgTitle = document.querySelector(".about-bg-title");
       const title = document.querySelector(".about-title");
       const subtitle = document.querySelector(".about-subtitle");
 
-      if (hero && bgTitle) {
-        gsap.to(bgTitle, {
-          yPercent: -25,
-          ease: "none",
-          scrollTrigger: {
-            trigger: hero,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      }
+      // (.about-bg-title is handled once, in the "Background Titles" loop
+      // below. It used to be animated here too, so two scrubbed tweens were
+      // fighting over the same element's yPercent - a source of jitter.)
 
       if (hero && title) {
         gsap.to(title, {
@@ -67,7 +57,7 @@ export default function useAboutExperience() {
           scrollTrigger: {
             trigger: section,
             start: "top 80%",
-            toggleActions: "play none none reverse",
+            once: true,
           },
         });
       });
@@ -91,7 +81,8 @@ export default function useAboutExperience() {
           });
         });
 
-      ScrollTrigger.refresh();
+      // Refresh once fonts/images have settled so trigger positions are right.
+      document.fonts?.ready.then(() => ScrollTrigger.refresh());
     });
 
     return () => ctx.revert();

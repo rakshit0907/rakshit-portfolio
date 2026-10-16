@@ -21,8 +21,6 @@ export default function useAboutParallax() {
             },
           });
         });
-
-      ScrollTrigger.refresh();
     });
 
     return () => ctx.revert();
