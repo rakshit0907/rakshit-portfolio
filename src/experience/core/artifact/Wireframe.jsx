@@ -1,85 +1,55 @@
-import { useMemo } from "react";
+import { useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import { Line } from "@react-three/drei";
 
+// Previously this rendered every edge as its own drei <Line> (~270 separate
+// objects/materials) plus ~45 individual sphere meshes = ~300 draw calls
+// for a faint backdrop. It's now ONE LineSegments + ONE InstancedMesh.
 export default function Wireframe({ cageRef }) {
-  const { nodes, edges } = useMemo(() => {
-    // Slightly smaller cage
+  const nodesRef = useRef();
+
+  const { edgeGeometry, nodes } = useMemo(() => {
     const geo = new THREE.IcosahedronGeometry(1.75, 2);
 
+    // WireframeGeometry de-duplicates shared edges for us.
+    const edgeGeometry = new THREE.WireframeGeometry(geo);
+
     const pos = geo.attributes.position;
-
-    const map = new Map();
-    const nodes = [];
-    const edges = [];
-    const edgeSet = new Set();
-
-    const getVertex = (i) =>
-      new THREE.Vector3().fromBufferAttribute(pos, i);
-
-    const key = (v) =>
-      `${v.x.toFixed(3)}_${v.y.toFixed(3)}_${v.z.toFixed(3)}`;
-
-    for (let i = 0; i < pos.count; i += 3) {
-      const tri = [];
-
-      for (let j = 0; j < 3; j++) {
-        const v = getVertex(i + j);
-        const k = key(v);
-
-        if (!map.has(k)) {
-          map.set(k, nodes.length);
-          nodes.push(v);
-        }
-
-        tri.push(map.get(k));
-      }
-
-      for (let j = 0; j < 3; j++) {
-        const a = tri[j];
-        const b = tri[(j + 1) % 3];
-
-        const edge = a < b ? `${a}-${b}` : `${b}-${a}`;
-
-        if (!edgeSet.has(edge)) {
-          edgeSet.add(edge);
-
-          edges.push([
-            nodes[a].toArray(),
-            nodes[b].toArray(),
-          ]);
-        }
+    const seen = new Set();
+    const all = [];
+    for (let i = 0; i < pos.count; i++) {
+      const v = new THREE.Vector3().fromBufferAttribute(pos, i);
+      const k = `${v.x.toFixed(3)}_${v.y.toFixed(3)}_${v.z.toFixed(3)}`;
+      if (!seen.has(k)) {
+        seen.add(k);
+        all.push(v);
       }
     }
 
-    return { nodes, edges };
+    geo.dispose();
+    return { edgeGeometry, nodes: all.filter((_, i) => i % 2 === 0) };
   }, []);
+
+  useLayoutEffect(() => {
+    const mesh = nodesRef.current;
+    if (!mesh) return;
+    const m = new THREE.Matrix4();
+    nodes.forEach((p, i) => {
+      m.makeTranslation(p.x, p.y, p.z);
+      mesh.setMatrixAt(i, m);
+    });
+    mesh.instanceMatrix.needsUpdate = true;
+  }, [nodes]);
 
   return (
     <group ref={cageRef}>
-      {edges.map((points, i) => (
-        <Line
-          key={i}
-          points={points}
-          color="#88847d"
-          transparent
-          opacity={0.12}
-          lineWidth={1}
-        />
-      ))}
+      <lineSegments geometry={edgeGeometry}>
+        <lineBasicMaterial color="#88847d" transparent opacity={0.16} />
+      </lineSegments>
 
-      {nodes
-        .filter((_, i) => i % 2 === 0)
-        .map((p, i) => (
-          <mesh key={i} position={p}>
-            <sphereGeometry args={[0.011, 8, 8]} />
-            <meshBasicMaterial
-              color="#efe0b0"
-              transparent
-              opacity={0.8}
-            />
-          </mesh>
-        ))}
+      <instancedMesh ref={nodesRef} args={[undefined, undefined, nodes.length]}>
+        <sphereGeometry args={[0.011, 8, 8]} />
+        <meshBasicMaterial color="#efe0b0" transparent opacity={0.8} />
+      </instancedMesh>
     </group>
   );
 }
