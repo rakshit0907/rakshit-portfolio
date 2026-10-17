@@ -5,6 +5,16 @@ import Scene from "./scene/Scene";
 import BackgroundParticles from "./background/BackgroundParticles";
 import useActiveSection from "../hooks/useActiveSection";
 
+// Defined once, outside the component. If this object were recreated on every
+// render, react-three-fiber would snap the camera back to its starting spot
+// each time the route changed, before CameraRig could move it.
+const CAMERA = {
+  position: [0, 1.6, 9],
+  fov: 42,
+  near: 0.1,
+  far: 100,
+};
+
 export default function Experience() {
   // Starts at 1.5x. If the device can't hold its frame rate,
   // PerformanceMonitor drops to 1x automatically (and recovers if it can).
@@ -16,12 +26,7 @@ export default function Experience() {
   return (
     <Canvas
       dpr={[1, maxDpr]}
-      camera={{
-        position: [0, 1.6, 9],
-        fov: 42,
-        near: 0.1,
-        far: 100,
-      }}
+      camera={CAMERA}
       gl={{
         // The EffectComposer does its own multisampling, so native MSAA
         // on the default framebuffer would just be paid for twice.

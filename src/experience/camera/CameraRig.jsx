@@ -10,10 +10,14 @@ import * as THREE from "three";
 // so Home looks exactly as before.
 // ---------------------------------------------------------------
 const views = {
-  hero:     { pos: [0, 1.6, 9],     look: [0, 0, 0] },
-  about:    { pos: [-1.4, 1.2, 10.5], look: [0, 0, 0] },
-  projects: { pos: [-0.8, 2.4, 11.5], look: [0, 0, 0] },
-  contact:  { pos: [0.8, 1.0, 8.2],  look: [0, 0.1, 0] },
+  // Home: level view, object on the right (the original camera).
+  hero:     { pos: [0, 1.6, 9],      look: [0, 0, 0] },
+  // About: from above, object pushed toward the right edge.
+  about:    { pos: [-1.6, 3.6, 8.6], look: [-1.2, 0, 0] },
+  // Projects: from below and further away, object small in the top right.
+  projects: { pos: [-1.8, -1.4, 10.8], look: [0.4, 0.4, 0] },
+  // Contact: very close, so the object looks huge and spills off the right edge.
+  contact:  { pos: [2.2, 0.2, 7.2],  look: [-0.4, 0, 0] },
 };
 
 const reduceMotion =
