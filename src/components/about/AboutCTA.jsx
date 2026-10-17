@@ -1,8 +1,18 @@
 import { headingXL } from "../../theme";
 import Reveal from "../ui/Reveal";
 import ChapterFrame from "../ui/ChapterFrame";
+import MessageForm from "./MessageForm";
+import { getLenis } from "../../lib/lenis";
 
 export default function AboutCTA() {
+  const goToForm = () => {
+    const el = document.getElementById("message-form");
+    if (!el) return;
+    const lenis = getLenis();
+    if (lenis) lenis.scrollTo(el, { offset: -120 });
+    else el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
   return (
     <section className="about-cta relative -mt-24 py-64 bg-black/70 overflow-hidden z-[60]">
 
@@ -42,7 +52,7 @@ export default function AboutCTA() {
 
             <div className="lg:col-span-5 flex lg:justify-end items-end">
               <Reveal delay={0.4}>
-                <button className="group px-12 py-5 rounded-full border border-white text-white font-semibold transition-all duration-500 hover:bg-white hover:text-black hover:scale-105">
+                <button onClick={goToForm} className="group px-12 py-5 rounded-full border border-white text-white font-semibold transition-all duration-500 hover:bg-white hover:text-black hover:scale-105">
                   <span className="flex items-center gap-4">
                     Start a Conversation
                     <span className="transition-transform duration-500 group-hover:translate-x-2">→</span>
@@ -50,6 +60,15 @@ export default function AboutCTA() {
                 </button>
               </Reveal>
             </div>
+          </div>
+
+          <div id="message-form" className="mt-40 max-w-4xl">
+            <Reveal>
+              <p className="uppercase tracking-[0.45em] text-[#5E81AC] text-xs mb-10">
+                Leave a message or project idea
+              </p>
+              <MessageForm />
+            </Reveal>
           </div>
 
         </ChapterFrame>
