@@ -7,7 +7,7 @@ import ProjectGlow from "./ProjectGlow";
 import ProjectConstellation from "../components/projects/ProjectConstellation";
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
-
+  console.log("Active project:", activeProject?.title ?? null);
   return (
     <section className="relative bg-black/70 text-white py-40 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-10">

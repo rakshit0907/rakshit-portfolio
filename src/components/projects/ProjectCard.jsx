@@ -1,20 +1,36 @@
+
 import { motion } from "framer-motion";
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, onOpen }) {
+  const handleKeyDown = (e) => {
+    // Don't open the modal when interacting with a link or button.
+    if (e.target.closest("a, button")) return;
+
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onOpen?.(project);
+    }
+  };
+
   return (
     <motion.section
-      className="min-h-screen flex items-center py-24"
+      className="min-h-screen flex items-center py-24 cursor-pointer"
       initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
+      onClick={() => {
+  console.log("Project clicked:", project.title);
+  onOpen(project);
+}}
+style={{ cursor: "pointer" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      aria-label={`View details for ${project.title}`}
+      data-testid={`project-card-${project.id}`}
     >
       <div className="max-w-7xl mx-auto w-full px-8">
-
-        {/* Image */}
-
-        <div className="relative h-[420px] lg:h-[460px] rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A]">
-
+        <div className="relative h-[420px] lg:h-[460px] rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A] transition-colors duration-300 hover:border-white/30">
           {project.image ? (
             <img
               src={project.image}
@@ -22,105 +38,55 @@ export default function ProjectCard({ project }) {
               className="w-full h-full object-contain"
             />
           ) : (
-            <>
-              <div className="absolute inset-0 bg-gradient-to-br from-[#101820] via-[#0A0A0A] to-[#050505]" />
-
-              <div
-                className="absolute inset-0 opacity-[0.04]"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "50px 50px",
-                }}
-              />
-
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-
-                <span className="text-xs tracking-[0.45em] uppercase text-[#6F93BF]">
-                  Project Preview
-                </span>
-
-                <div className="w-24 h-px bg-[#6F93BF]/40 my-6" />
-
-                <h3 className="text-4xl font-bold text-white/20 tracking-tight">
-                  {project.title}
-                </h3>
-
-              </div>
-            </>
+            <div className="w-full h-full flex items-center justify-center text-white/40">
+              Project preview coming soon
+            </div>
           )}
-
         </div>
 
-        {/* Content */}
-
         <div className="mt-12">
-
-          {/* Huge Number */}
-
-          <h1 className="text-[60px] lg:text-[80px] leading-none font-black text-white/5">
+          <h2 className="text-sm tracking-[0.4em] text-white/40">
             {project.id}
-          </h1>
+          </h2>
 
-          {/* Subtitle */}
-
-          <p className="uppercase tracking-[0.28em] text-[#6F93BF] text-sm mt-4">
+          <p className="mt-4 text-sm uppercase tracking-[0.3em] text-white/50">
             {project.subtitle}
           </p>
 
-          {/* Title */}
-
-          <h2 className="text-4xl lg:text-5xl font-black tracking-tight mt-4">
+          <h3 className="mt-4 text-4xl lg:text-6xl font-semibold">
             {project.title}
-          </h2>
+          </h3>
 
-          {/* Description */}
-
-          <p className="mt-8 max-w-3xl text-lg leading-8 text-white/65">
+          <p className="mt-6 max-w-3xl text-white/60 leading-relaxed">
             {project.description}
           </p>
 
-          {/* Tech */}
-
-          <div className="flex flex-wrap gap-3 mt-12">
-
+          <div className="flex flex-wrap gap-3 mt-8">
             {project.tech.map((item) => (
               <span
                 key={item}
-                className="
-                  border
-                  border-white/10
-                  px-4
-                  py-2
-                  text-xs
-                  uppercase
-                  tracking-[0.18em]
-                  text-white/70
-                "
+                className="px-4 py-2 rounded-full border border-white/10 text-sm text-white/70"
               >
                 {item}
               </span>
             ))}
-
           </div>
 
-          {/* Buttons */}
-          <div className="flex gap-12 mt-10">
+          <div className="flex flex-wrap items-center gap-8 mt-10">
+            <span className="text-sm uppercase tracking-widest text-white/80">
+              Explore project details ↗
+            </span>
+
             {project.github && (
-              <a 
+              <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group text-white text-sm uppercase tracking-[0.2em]"
+                onClick={(e) => e.stopPropagation()}
+                className="text-sm text-white/60 hover:text-white"
               >
-                Github
-
-                <span className="ml-2 transition-transform duration-300 inline-block group-hover:translate-x-2">
-                    →
-                </span>
-              </a>  
+                GitHub ↗
+              </a>
             )}
 
             {project.live && (
@@ -128,19 +94,14 @@ export default function ProjectCard({ project }) {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group text-[#6F93BF] text-sm uppercase tracking-[0.2em]"
+                onClick={(e) => e.stopPropagation()}
+                className="text-sm text-white/60 hover:text-white"
               >
-                Live Demo
-
-                <span className="ml-2 transition-transform duration-300 inline-block group-hover:translate-x-2">
-                   →
-                </span>
-              </a>  
+                Live Demo ↗
+              </a>
             )}
           </div>
-
         </div>
-
       </div>
     </motion.section>
   );
