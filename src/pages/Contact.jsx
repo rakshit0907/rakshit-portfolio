@@ -66,6 +66,7 @@ export default function Contact() {
 
             <a
               href="/resume.pdf"
+              download="Rakshit-Pandey-Resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="group flex items-center justify-between py-8 border-b border-zinc-800 transition-colors duration-300 hover:border-[#5E81AC]/40"

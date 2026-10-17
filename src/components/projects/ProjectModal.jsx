@@ -21,7 +21,8 @@ export default function ProjectModal({ project, onClose }) {
     <AnimatePresence>
       {project && (
         <motion.div
-          className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-xl overflow-y-auto"
+          data-lenis-prevent
+          className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-xl overflow-y-auto overscroll-contain"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

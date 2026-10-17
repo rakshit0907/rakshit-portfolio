@@ -11,10 +11,12 @@ import { scrollToTopInstant } from "../lib/lenis";
 const loadAbout = () => import("../pages/About");
 const loadProjects = () => import("../pages/Projects");
 const loadContact = () => import("../pages/Contact");
+const loadNotFound = () => import("../pages/NotFound");
 
 const About = lazy(loadAbout);
 const Projects = lazy(loadProjects);
 const Contact = lazy(loadContact);
+const NotFound = lazy(loadNotFound);
 
 export default function AppRoutes() {
   const location = useLocation();
@@ -60,6 +62,14 @@ export default function AppRoutes() {
               element={
                 <Suspense fallback={null}>
                   <Contact />
+                </Suspense>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <Suspense fallback={null}>
+                  <NotFound />
                 </Suspense>
               }
             />
